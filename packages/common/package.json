@@ -23,9 +23,14 @@
   },
   "types": "./lib/index.d.ts",
   "dependencies": {
-    "deepmerge": "^4.2.2"
+    "camelcase": "^5.3.1",
+    "deepmerge": "^4.2.2",
+    "promise-parallel-throttle": "^3.3.0",
+    "uppercamelcase": "^3.0.0"
   },
   "devDependencies": {
-    "@types/deepmerge": "^2.2.0"
+    "@types/camelcase": "^5.2.0",
+    "@types/deepmerge": "^2.2.0",
+    "@types/uppercamelcase": "^3.0.0"
   }
 }

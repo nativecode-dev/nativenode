@@ -1,6 +1,6 @@
+import { Merge } from '@nnode/common'
 import { Subject, Subscription } from 'rxjs'
 
-import { Merge } from './Utilities/Merge'
 import { LincolnMessage } from './LincolnMessage'
 import { LincolnEnvelope } from './LincolnEnvelope'
 import { LincolnOptions } from './LincolnOptions'

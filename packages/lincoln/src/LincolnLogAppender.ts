@@ -1,9 +1,9 @@
 import path from 'path'
 
 import { format } from 'util'
+import { Merge } from '@nnode/common'
 
 import { Lincoln } from './Lincoln'
-import { Merge } from './Utilities/Merge'
 import { LincolnLog } from './LincolnLog'
 import { LincolnEnvelope } from './LincolnEnvelope'
 import { LincolnLogAppenderOptions } from './LincolnLogAppenderOptions'
