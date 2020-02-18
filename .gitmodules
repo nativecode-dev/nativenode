@@ -1,0 +1,3 @@
+[submodule ".citools"]
+	path = .citools
+	url = http://github.com/nativecode-dev/.citools.git

@@ -1,0 +1,31 @@
+{
+  "name": "@nnode/common",
+  "version": "11.0.0",
+  "description": "Provides a simple conversion from config object to environment variable.",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nativecode-dev/nativenode"
+  },
+  "bugs": {
+    "url": "https://github.com/nativecode-dev/nativenode/issues"
+  },
+  "homepage": "https://github.com/nativecode-dev/nativenode/tree/master/packages/common",
+  "author": "opensource@nativecode.com",
+  "main": "./lib/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "cli-tasks build",
+    "upgrade": "npx npm-check -y"
+  },
+  "types": "./lib/index.d.ts",
+  "dependencies": {
+    "deepmerge": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/deepmerge": "^2.2.0"
+  }
+}

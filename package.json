@@ -1,0 +1,148 @@
+{
+  "name": "nofrills",
+  "version": "0.0.0",
+  "private": true,
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-lerna-changelog"
+    }
+  },
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "build": "cli-tasks build",
+    "build:ci": "cli-tasks build:ci",
+    "commit": "cli-tasks commit",
+    "lerna": "lerna",
+    "prepare": "lerna bootstrap",
+    "release": "cli-tasks release",
+    "release:canary": "cli-tasks release:canary",
+    "release:pre": "cli-tasks release:pre",
+    "setup:git": "cli-tasks setup-git",
+    "setup:ssh": "cli-tasks setup-ssh",
+    "start": "cli-tasks start",
+    "test": "cli-tasks test",
+    "test:ci": "cli-tasks test:ci",
+    "upgrade": "cli-tasks upgrade"
+  },
+  "nyc": {
+    "all": true,
+    "exclude": [
+      "node_modules",
+      "**/src/**/*.spec.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "core/*/src/**/*.ts",
+      "packages/*/src/**/*.ts"
+    ],
+    "instrument": true,
+    "report-dir": ".cache/coverage",
+    "reporter": "text",
+    "sourceMap": true,
+    "temp-directory": ".cache/nyc"
+  },
+  "tasks": {
+    "build": [
+      "[clean]",
+      "[source]",
+      "[build:compile]"
+    ],
+    "build:compile": [
+      "lerna run build"
+    ],
+    "ci:build": [
+      "[build:compile]"
+    ],
+    "ci:configure": [
+      ".citools/setup-git ${BUILD_REPO_BRANCH} ${BUILD_REPO_GIT} ${BUILD_REPO_EMAIL}",
+      ".citools/setup-ssh ${BUILD_REPO_DOMAIN} ${BUILD_REPO_SSHKEY_PATH} ${BUILD_REPO_DOMAIN_SSH}"
+    ],
+    "ci:install": [
+      "npm ci"
+    ],
+    "ci:publish:canary": [
+      "[ci:configure]",
+      "[ci:test]",
+      ".citools/lerna-publish canary"
+    ],
+    "ci:publish:prerelease": [
+      "[ci:configure]",
+      "[ci:test]",
+      ".citools/lerna-publish prerelease"
+    ],
+    "ci:publish:release": [
+      "[ci:configure]",
+      "[ci:test]",
+      ".citools/lerna-publish release"
+    ],
+    "ci:test": [
+      "[ci:build]",
+      "nyc mocha"
+    ],
+    "clean": [
+      "rimraf .cache",
+      "rimraf core/*/lib",
+      "rimraf packages/*/lib",
+      "rimraf **/*.tsbuildinfo"
+    ],
+    "commit": [
+      "git add -A .",
+      "git-cz"
+    ],
+    "coverage": [
+      "nyc report --reporter=text-lcov | coveralls"
+    ],
+    "install": [
+      "npm install"
+    ],
+    "source": [
+      "[source:format]",
+      "[source:lint]"
+    ],
+    "source:format": [
+      "jsonsort *.json",
+      "jsonsort core/*/*.json",
+      "jsonsort packages/*/*.json",
+      "prettier --loglevel silent --write \"*/*/specs/**/*.ts\"",
+      "prettier --loglevel silent --write \"*/*/src/**/*.ts\""
+    ],
+    "source:lint": [
+      "tslint --project tsconfig.json --config tslint.json"
+    ],
+    "test": [
+      "[build]",
+      "nyc mocha"
+    ],
+    "upgrade": [
+      "npx npm-check -y",
+      "lerna run upgrade"
+    ]
+  },
+  "devDependencies": {
+    "@nofrills/tasks": "^10.0.3",
+    "@types/chai": "^4.2.9",
+    "@types/chai-as-promised": "^7.1.2",
+    "@types/mocha": "^7.0.1",
+    "@types/node": "^13.7.1",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "commitizen": "^4.0.3",
+    "coveralls": "^3.0.9",
+    "cross-env": "^7.0.0",
+    "cz-lerna-changelog": "^2.0.2",
+    "json-sort-cli": "^1.15.8",
+    "lerna": "^3.19.0",
+    "mocha": "^7.0.1",
+    "nyc": "^15.0.0",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
+    "source-map-support": "^0.5.16",
+    "ts-node": "^8.6.2",
+    "tslint": "^6.0.0",
+    "tslint-config-standard": "^9.0.0",
+    "tslint-no-unused-expression-chai": "^0.1.4",
+    "typescript": "^3.7.5"
+  }
+}
