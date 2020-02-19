@@ -28,14 +28,6 @@ export class Lincoln extends Subject<LincolnEnvelope> {
     return this.namespace.join(this.options.namespaceSeparator)
   }
 
-  addTransform(transformer: LincolnLogTransform): Lincoln {
-    if (this.transformers.includes(transformer) === false) {
-      this.transformers.push(transformer)
-    }
-
-    return this
-  }
-
   close(): void {
     this.complete()
 
@@ -79,6 +71,14 @@ export class Lincoln extends Subject<LincolnEnvelope> {
 
   info<T>(message: T, ...attributes: any[]): Lincoln {
     return this.write(createMessage(message, LincolnMessageType.info, attributes))
+  }
+
+  intercept(transformer: LincolnLogTransform): Lincoln {
+    if (this.transformers.includes(transformer) === false) {
+      this.transformers.push(transformer)
+    }
+
+    return this
   }
 
   silly<T>(message: T, ...attributes: any[]): Lincoln {

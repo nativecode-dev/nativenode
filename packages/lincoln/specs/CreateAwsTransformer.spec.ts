@@ -7,10 +7,11 @@ import { parse } from 'ini'
 import expect from './expect'
 
 import { createLogger } from '../src/CreateLogger'
+import { LincolnMessageType } from '../src/LincolnMessageType'
 import { createAwsTransformer } from '../src/Transformers/CreateAwsTransformer'
 
 const lincoln = createLogger('lincoln:test')
-lincoln.addTransform(createAwsTransformer)
+lincoln.intercept(createAwsTransformer)
 
 function getAccessKey(): string {
   if (process.env.PRIMARY_ACCESS_KEY) {
@@ -87,5 +88,17 @@ describe('when using CreateAwsTransformer', () => {
     })
 
     lincoln.debug('message', getSecretKey())
+  })
+
+  it('should log message with parameters', done => {
+    const subscription = lincoln.subscribe(envelope => {
+      expect(envelope.scope).to.equal('lincoln:test')
+      expect(envelope.message.body).to.equal('message')
+      expect(envelope.message.parameters).to.deep.equal([1, 2, 3])
+      subscription.unsubscribe()
+      done()
+    })
+
+    lincoln.write({ body: 'message', parameters: [1, 2, 3], type: LincolnMessageType.debug })
   })
 })

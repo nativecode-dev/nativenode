@@ -111,5 +111,17 @@ describe('when using Lincoln', () => {
 
       sut.error(new Error('error'))
     })
+
+    it('should log message with parameters', done => {
+      const subscription = sut.subscribe(envelope => {
+        expect(envelope.scope).to.equal('lincoln:test')
+        expect(envelope.message.body).to.equal('message')
+        expect(envelope.message.parameters).to.deep.equal([1, 2, 3])
+        subscription.unsubscribe()
+        done()
+      })
+
+      sut.write({ body: 'message', parameters: [1, 2, 3], type: LincolnMessageType.debug })
+    })
   })
 })
