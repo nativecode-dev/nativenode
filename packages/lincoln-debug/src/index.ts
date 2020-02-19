@@ -19,10 +19,10 @@ export class LincolnLogDebug extends LincolnLog {
       : (Cache[envelope.scope] = debug(envelope.scope))
 
     const messageIsString = typeof envelope.message.body === 'string'
-    const messageHasAttributes = envelope.message.attributes.length > 0
+    const messageHasParams = envelope.message.parameters.length > 0
 
-    if (messageIsString && messageHasAttributes) {
-      logger(envelope.message.body, ...envelope.message.attributes)
+    if (messageIsString && messageHasParams) {
+      logger(envelope.message.body, ...envelope.message.parameters)
     } else if (messageIsString) {
       logger(envelope.message.body)
     } else {

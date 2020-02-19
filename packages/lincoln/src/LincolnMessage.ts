@@ -1,7 +1,7 @@
 import { LincolnMessageType } from './LincolnMessageType'
 
 export interface LincolnMessage {
-  attributes: any[]
   body: any
+  parameters: Array<Date | number | string>
   type: LincolnMessageType
 }

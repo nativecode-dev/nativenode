@@ -59,6 +59,16 @@ describe('when using CreateAwsTransformer', () => {
     lincoln.debug(getAccessKey())
   })
 
+  it('should protect access keys in parameters', done => {
+    const subscription = lincoln.subscribe(envelope => {
+      expect(envelope.message.parameters).to.include('[AWS_ACCESS_KEY_ID]')
+      subscription.unsubscribe()
+      done()
+    })
+
+    lincoln.debug('message', getAccessKey())
+  })
+
   it('should protect secret keys', done => {
     const subscription = lincoln.subscribe(envelope => {
       expect(envelope.message.body).to.contain('[AWS_SECRET_ACCESS_KEY]')
@@ -69,19 +79,9 @@ describe('when using CreateAwsTransformer', () => {
     lincoln.debug(getSecretKey())
   })
 
-  it('should protect secret keys in attributes', done => {
+  it('should protect secret keys in parameters', done => {
     const subscription = lincoln.subscribe(envelope => {
-      expect(envelope.message.attributes).to.include('[AWS_ACCESS_KEY_ID]')
-      subscription.unsubscribe()
-      done()
-    })
-
-    lincoln.debug('message', getAccessKey())
-  })
-
-  it('should protect secret keys in attributes', done => {
-    const subscription = lincoln.subscribe(envelope => {
-      expect(envelope.message.attributes).to.include('[AWS_SECRET_ACCESS_KEY]')
+      expect(envelope.message.parameters).to.include('[AWS_SECRET_ACCESS_KEY]')
       subscription.unsubscribe()
       done()
     })

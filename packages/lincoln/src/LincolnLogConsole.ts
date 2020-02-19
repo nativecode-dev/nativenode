@@ -7,7 +7,7 @@ export class LincolnLogConsole extends LincolnLog {
   }
 
   protected async render(envelope: LincolnEnvelope): Promise<void> {
-    console.log(envelope.created, envelope.message.body, envelope.message.attributes)
+    console.log(envelope.created, envelope.message.body, envelope.message.parameters)
   }
 
   protected async renderError(envelope: LincolnEnvelope): Promise<void> {
