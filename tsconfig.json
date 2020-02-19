@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "zipcodes-regex": [
+        "packages/types/types/zipcodes-regex"
+      ]
+    },
     "typeRoots": [
       "node_modules/@types"
     ]
