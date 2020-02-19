@@ -19,15 +19,13 @@
   },
   "scripts": {
     "build": "cli-tasks build",
-    "upgrade": "npx npm-check -y"
+    "upgrade": "cli-tasks upgrade"
   },
   "types": "./lib/index.d.ts",
   "dependencies": {
-    "@nnode/common": "^11.0.0",
-    "deepmerge": "^4.2.2",
+    "@nnode/common": "^0.0.0",
+    "rotating-file-stream": "^2.0.2",
     "rxjs": "^6.5.4"
   },
-  "devDependencies": {
-    "@types/deepmerge": "^2.2.0"
-  }
+  "devDependencies": {}
 }

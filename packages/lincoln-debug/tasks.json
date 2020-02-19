@@ -1,0 +1,13 @@
+{
+  "tasks": {
+    "build": [
+      "tsc --project tsconfig.json"
+    ],
+    "clean": [
+      "rimraf lib"
+    ],
+    "upgrade": [
+      "npm-check -y"
+    ]
+  }
+}

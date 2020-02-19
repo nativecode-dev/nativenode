@@ -1,18 +1,5 @@
-# @nofrills/lincoln
-
-[![npm](https://img.shields.io/npm/v/@nofrills/lincoln.svg?style=flat-square)](https://www.npmjs.com/package/@nofrills/lincoln)
-
-NOTE: As of 0.9.0, this packge merely provides a slim abstraction for logging. Not useful by itself,
-as it provides no output. Please see one of the compatible packages, such as `@nofrills/lincoln-debug`.
-
-# Install
-
-```bash
-npm install --save @nofrills/lincoln
-```
-
 # License
-Copyright 2018 NativeCode Development <opensource@nativecode.com>
+Copyright 2020 NativeCode Development <opensource@nativecode.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without
