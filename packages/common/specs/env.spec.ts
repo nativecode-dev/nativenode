@@ -2,9 +2,9 @@ import 'mocha'
 
 import expect from './expect'
 
-import { Env } from '../src/Env'
-import { EnvOverride } from '../src/EnvOverride'
-import { EnvCaseOptions } from '../src/EnvCaseOptions'
+import { Env } from '../src/Environment/Env'
+import { EnvOverride } from '../src/Environment/EnvOverride'
+import { EnvCaseOptions } from '../src/Environment/EnvCaseOptions'
 
 interface ConfigOptions {
   runtime: {
