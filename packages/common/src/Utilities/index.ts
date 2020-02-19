@@ -1,6 +1,6 @@
 export * from './Dedupe'
 export * from './DeepPartial'
-export * from './Dictionary'
+export * from './DictionaryOf'
 export * from './Merge'
 export * from './MimeType'
 export * from './MimeTypeValue'

@@ -1,8 +1,7 @@
-import { DictionaryOf } from '@nnode/common'
+import { NpmUrl } from './NpmUrl'
 
-export interface NpmUrl {
-  type?: string
-  url?: string
+interface DictionaryOf<T> {
+  [key: string]: T
 }
 
 export interface Npm {

@@ -2,7 +2,7 @@ import camelcase from 'camelcase'
 import deepmerge from 'deepmerge'
 import uppercamelcase from 'uppercamelcase'
 
-import { Is, ObjectNavigator } from '@nofrills/types'
+import { Is, ObjectNavigator } from '../Types'
 
 import { EnvFilter } from './EnvFilter'
 import { EnvOptions } from './EnvOptions'
