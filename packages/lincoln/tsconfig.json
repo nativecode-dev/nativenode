@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
     "outDir": "lib",
-    "rootDir": "src"
+    "rootDir": "src",
+    "typeRoots": [
+      "node_modules/@types"
+    ]
   },
   "extends": "../../tsconfig.settings",
   "include": [

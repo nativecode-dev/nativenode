@@ -9,8 +9,8 @@ import { LincolnLogFileOptions } from './LincolnLogFileOptions'
 const DefaultLincolnLogFileOptions: Partial<LincolnLogFileOptions> = {
   directory: process.cwd(),
   filemode: 0o660,
-  logformat: 'default-app.log',
-  logFileOptions: {
+  filename: 'default-app.log',
+  rotation: {
     compress: 'gzip',
     encoding: 'utf-8',
     interval: '1d',
@@ -24,7 +24,7 @@ export class LincolnLogFile extends LincolnLog {
   constructor(options: Partial<LincolnLogFileOptions>, lincoln: Lincoln) {
     super(lincoln)
     this.options = Merge<LincolnLogFileOptions>(DefaultLincolnLogFileOptions, options)
-    this.logfile = createStream(this.options.logformat)
+    this.logfile = createStream(this.options.filename)
   }
 
   protected async initialize(): Promise<void> {

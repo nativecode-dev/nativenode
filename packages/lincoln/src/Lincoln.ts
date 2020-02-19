@@ -6,6 +6,7 @@ import { LincolnEnvelope } from './LincolnEnvelope'
 import { LincolnOptions } from './LincolnOptions'
 import { createMessage } from './CreateMessage'
 import { LincolnMessageType } from './LincolnMessageType'
+import { LincolnLogTransform } from './LincolnLogTransform'
 
 const DefaultOptions: Partial<LincolnOptions> = {
   namespaceSeparator: ':',
@@ -15,6 +16,7 @@ export class Lincoln extends Subject<LincolnEnvelope> {
   private readonly namespace: string[]
   private readonly options: LincolnOptions
   private readonly subscriptions: Subscription[] = []
+  private readonly transformers: LincolnLogTransform[] = []
 
   constructor(options: Partial<LincolnOptions>) {
     super()
@@ -24,6 +26,14 @@ export class Lincoln extends Subject<LincolnEnvelope> {
 
   get scope(): string {
     return this.namespace.join(this.options.namespaceSeparator)
+  }
+
+  addTransform(transformer: LincolnLogTransform): Lincoln {
+    if (this.transformers.includes(transformer) === false) {
+      this.transformers.push(transformer)
+    }
+
+    return this
   }
 
   close(): void {
@@ -85,7 +95,7 @@ export class Lincoln extends Subject<LincolnEnvelope> {
 
   write(message: LincolnMessage): Lincoln {
     const envelope: LincolnEnvelope = {
-      message,
+      message: this.transform(message),
       created: new Date(),
       scope: this.namespace.join(this.options.namespaceSeparator),
     }
@@ -93,5 +103,9 @@ export class Lincoln extends Subject<LincolnEnvelope> {
     this.next(envelope)
 
     return this
+  }
+
+  private transform(message: LincolnMessage): LincolnMessage {
+    return this.transformers.reduce<LincolnMessage>((transformed, transformer) => transformer(transformed), message)
   }
 }
