@@ -42,4 +42,74 @@ describe('when using Lincoln', () => {
 
     sut.write(createMessage('test', LincolnMessageType.info))
   })
+
+  const sut = new Lincoln({ namespace: 'lincoln:test' })
+
+  describe('to call log methods', () => {
+    it('should log debug message', done => {
+      const subscription = sut.subscribe(envelope => {
+        expect(envelope.scope).to.equal('lincoln:test')
+        expect(envelope.message.body).to.equal('debug message')
+        subscription.unsubscribe()
+        done()
+      })
+
+      sut.debug('debug message')
+    })
+
+    it('should log info message', done => {
+      const subscription = sut.subscribe(envelope => {
+        expect(envelope.scope).to.equal('lincoln:test')
+        expect(envelope.message.body).to.equal('info message')
+        subscription.unsubscribe()
+        done()
+      })
+
+      sut.info('info message')
+    })
+
+    it('should log warn message', done => {
+      const subscription = sut.subscribe(envelope => {
+        expect(envelope.scope).to.equal('lincoln:test')
+        expect(envelope.message.body).to.equal('warn message')
+        subscription.unsubscribe()
+        done()
+      })
+
+      sut.warn('warn message')
+    })
+
+    it('should log silly message', done => {
+      const subscription = sut.subscribe(envelope => {
+        expect(envelope.scope).to.equal('lincoln:test')
+        expect(envelope.message.body).to.equal('silly message')
+        subscription.unsubscribe()
+        done()
+      })
+
+      sut.silly('silly message')
+    })
+
+    it('should log fatal message', done => {
+      const subscription = sut.subscribe(envelope => {
+        expect(envelope.scope).to.equal('lincoln:test')
+        expect(envelope.message.body).to.instanceOf(Error)
+        subscription.unsubscribe()
+        done()
+      })
+
+      sut.fatal(new Error('fatal'))
+    })
+
+    it('should log error message', done => {
+      const subscription = sut.subscribe(envelope => {
+        expect(envelope.scope).to.equal('lincoln:test')
+        expect(envelope.message.body).to.instanceOf(Error)
+        subscription.unsubscribe()
+        done()
+      })
+
+      sut.error(new Error('error'))
+    })
+  })
 })
