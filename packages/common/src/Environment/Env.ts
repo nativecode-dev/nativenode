@@ -1,5 +1,4 @@
 import camelcase from 'camelcase'
-import deepmerge from 'deepmerge'
 import uppercamelcase from 'uppercamelcase'
 
 import { Is, ObjectNavigator } from '../Types'
@@ -9,6 +8,7 @@ import { EnvOptions } from './EnvOptions'
 import { EnvCaseOptions } from './EnvCaseOptions'
 import { EnvOverride } from './EnvOverride'
 import { EnvTransform } from './EnvTransform'
+import { Merge } from '../Utilities/Merge'
 
 const Defaults: Partial<EnvOptions> = {
   casing: EnvCaseOptions.Default,
@@ -24,11 +24,11 @@ export class Env {
 
   constructor(config: object, options?: Partial<EnvOptions>) {
     this.navigator = ObjectNavigator.from(config)
-    this.options = deepmerge.all<EnvOptions>([Defaults, options || {}])
+    this.options = Merge<EnvOptions>(Defaults, options || {})
   }
 
   static from(options: Partial<EnvOptions> = {}, filter?: EnvFilter, transform?: EnvTransform): Env {
-    const opts = deepmerge.all<EnvOptions>([Defaults, options])
+    const opts = Merge<EnvOptions>(Defaults, options)
     const root = ObjectNavigator.from({})
 
     const _filter = filter ? filter : () => true
@@ -64,8 +64,8 @@ export class Env {
     return Env.merge([root.toObject()], options)
   }
 
-  static merge(configs: object[], options?: Partial<EnvOptions>): Env {
-    const config = deepmerge.all<EnvOptions>(configs)
+  static merge(configs: object[], options: Partial<EnvOptions> = {}): Env {
+    const config = Merge<object>(...configs)
     return new Env(config, options)
   }
 
