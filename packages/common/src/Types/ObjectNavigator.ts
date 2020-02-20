@@ -1,17 +1,11 @@
 import { EventEmitter } from 'events'
 
 import { Types } from './Types'
+import { OnProperty } from './OnProperty'
 import { ObjectValue } from './ObjectValue'
 import { PropertyNotFound } from './Errors'
 import { ObjectParentIterator } from './ObjectParentIterator'
-
-export enum ObjectNavigatorEvents {
-  Property = 'property',
-}
-
-export interface OnProperty {
-  (name: string, value: ObjectNavigator): void
-}
+import { ObjectNavigatorEvents } from './ObjectNavigatorEvents'
 
 export class ObjectNavigator extends EventEmitter implements ObjectValue, IterableIterator<ObjectNavigator> {
   private readonly properties: Map<string, ObjectNavigator>
@@ -116,16 +110,10 @@ export class ObjectNavigator extends EventEmitter implements ObjectValue, Iterab
     this.current++
 
     if (property) {
-      return {
-        done: this.current > this.properties.size,
-        value: property,
-      }
+      return { done: this.current > this.properties.size, value: property }
     }
 
-    return {
-      done: true,
-      value: this,
-    }
+    return { done: true, value: this }
   }
 
   parents(): ObjectNavigator[] {
@@ -143,9 +131,11 @@ export class ObjectNavigator extends EventEmitter implements ObjectValue, Iterab
       .map(kvp => {
         const name = kvp[0]
         const navigator = kvp[1]
+
         if (onProperty) {
           onProperty(name, navigator)
         }
+
         this.emit(ObjectNavigatorEvents.Property, name, navigator)
         return navigator
       })
@@ -154,15 +144,17 @@ export class ObjectNavigator extends EventEmitter implements ObjectValue, Iterab
   }
 
   set<T>(keypath: string, value: T): ObjectNavigator {
-    const last = keypath.split('.').reduce((navigator, key) => {
+    const last = keypath.split('.').reduce<ObjectNavigator>((navigator, key) => {
       const child = navigator.get(key, true)
+
       if (child) {
         return child
       }
+
       const property = ObjectNavigator.from({})
       navigator.properties.set(key, property)
       return property
-    }, this as ObjectNavigator)
+    }, this)
 
     last.value = value
 
@@ -173,11 +165,13 @@ export class ObjectNavigator extends EventEmitter implements ObjectValue, Iterab
     return Array.from(this.properties.entries()).reduce((object, kvp: [string, ObjectNavigator]) => {
       const key = kvp[0]
       const property = kvp[1]
+
       if (property.type === 'object') {
         object[key] = property.toObject()
       } else {
         object[key] = property.value
       }
+
       return object
     }, instance)
   }
@@ -198,13 +192,6 @@ export class ObjectNavigator extends EventEmitter implements ObjectValue, Iterab
   private static value(key: string, value: any, path: string): ObjectValue {
     const keyid = path && path.length ? `${path}::${key}` : key
     const type = Types.from(value)
-
-    return {
-      key: keyid,
-      path,
-      property: key,
-      type,
-      value,
-    }
+    return { path, type, value, key: keyid, property: key }
   }
 }

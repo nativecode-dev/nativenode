@@ -16,7 +16,7 @@ export class Lincoln extends Subject<LincolnEnvelope> {
   private readonly namespace: string[]
   private readonly options: LincolnOptions
   private readonly subscriptions: Subscription[] = []
-  private readonly transformers: LincolnLogTransform[] = []
+  private readonly transformers: Set<LincolnLogTransform> = new Set()
 
   constructor(options: Partial<LincolnOptions>) {
     super()
@@ -74,11 +74,15 @@ export class Lincoln extends Subject<LincolnEnvelope> {
   }
 
   intercept(transformer: LincolnLogTransform): Lincoln {
-    if (this.transformers.includes(transformer) === false) {
-      this.transformers.push(transformer)
-    }
-
+    this.transformers.add(transformer)
     return this
+  }
+
+  interceptors(transformers: LincolnLogTransform[]): Lincoln {
+    return transformers.reduce<Lincoln>((lincoln, transformer) => {
+      this.transformers.add(transformer)
+      return lincoln
+    }, this)
   }
 
   silly<T>(message: T, ...attributes: any[]): Lincoln {
@@ -106,6 +110,9 @@ export class Lincoln extends Subject<LincolnEnvelope> {
   }
 
   private transform(message: LincolnMessage): LincolnMessage {
-    return this.transformers.reduce<LincolnMessage>((transformed, transformer) => transformer(transformed), message)
+    return Array.from(this.transformers.values()).reduce<LincolnMessage>(
+      (transformed, transformer) => transformer(transformed),
+      message,
+    )
   }
 }
