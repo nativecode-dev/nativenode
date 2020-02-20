@@ -2,7 +2,7 @@ import 'mocha'
 
 import { expect } from 'chai'
 
-import { Type, Types } from '../src'
+import { Type, Types } from '../src/Types'
 
 describe('when using types library for validation', () => {
   const testtype: Partial<Type> = {

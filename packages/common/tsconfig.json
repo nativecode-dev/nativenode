@@ -1,6 +1,12 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "outDir": "lib",
+    "paths": {
+      "zipcodes-regex": [
+        "types/zipcodes-regex"
+      ]
+    },
     "rootDir": "src",
     "typeRoots": [
       "node_modules/@types"

@@ -2,7 +2,7 @@ import 'mocha'
 
 import { expect } from 'chai'
 
-import { Is } from '../src/Is'
+import { Is } from '../src/Types/Is'
 
 describe('when using type library', () => {
   describe('"Is" module', () => {

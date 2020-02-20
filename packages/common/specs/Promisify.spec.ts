@@ -2,7 +2,7 @@ import 'mocha'
 
 import { expect } from 'chai'
 
-import { Promisify } from '../src/index'
+import { Promisify } from '../src//Types'
 
 describe('when turning node callback into promises', () => {
   function NodeLikeFunction(success: boolean, callback: (error?: Error) => void) {

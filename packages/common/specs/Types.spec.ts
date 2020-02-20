@@ -2,7 +2,7 @@ import 'mocha'
 
 import { expect } from 'chai'
 
-import { Type, Types } from '../src'
+import { Type, Types } from '../src/Types'
 
 describe('when using global TypeRegistry', () => {
   describe('when registering custom types', () => {

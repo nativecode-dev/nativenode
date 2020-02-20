@@ -25,7 +25,14 @@ function getAccessKey(): string {
   if (process.env.HOME) {
     const buffer = fs.readFileSync(`${process.env.HOME}/.aws/credentials`)
     const credentials = parse(buffer.toString())
-    return credentials.default.aws_access_key_id
+
+    if (credentials.nativecode && credentials.nativecode.aws_access_key_id) {
+      return credentials.nativecode.aws_access_key_id
+    }
+
+    if (credentials.default.aws_access_key_id) {
+      return credentials.default.aws_access_key_id
+    }
   }
 
   throw new Error('could not find access key')
@@ -43,7 +50,14 @@ function getSecretKey(): string {
   if (process.env.HOME) {
     const buffer = fs.readFileSync(`${process.env.HOME}/.aws/credentials`)
     const credentials = parse(buffer.toString())
-    return credentials.default.aws_secret_access_key
+
+    if (credentials.nativecode && credentials.nativecode.aws_secret_access_key) {
+      return credentials.nativecode.aws_secret_access_key
+    }
+
+    if (credentials.default.aws_secret_access_key) {
+      return credentials.default.aws_secret_access_key
+    }
   }
 
   throw new Error('could not find secret key')

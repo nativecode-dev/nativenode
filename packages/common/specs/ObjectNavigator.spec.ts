@@ -2,7 +2,7 @@ import 'mocha'
 
 import expect from './expect'
 
-import { ObjectNavigator, PropertyNotFound } from '../src'
+import { ObjectNavigator, PropertyNotFound } from '../src/Types'
 
 interface Address {
   line1: string

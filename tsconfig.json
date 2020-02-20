@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "zipcodes-regex": [
-        "packages/types/types/zipcodes-regex"
+        "packages/common/types/zipcodes-regex"
       ]
     },
     "typeRoots": [
