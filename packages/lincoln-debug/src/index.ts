@@ -14,9 +14,8 @@ export class LincolnLogDebug extends LincolnLog {
   }
 
   protected render(envelope: LincolnEnvelope): Promise<void> {
-    const logger: debug.IDebugger = Cache[envelope.scope]
-      ? Cache[envelope.scope]
-      : (Cache[envelope.scope] = debug(envelope.scope))
+    const scope = envelope.scope
+    const logger: debug.IDebugger = Cache[scope] ? Cache[scope] : (Cache[scope] = debug(scope))
 
     const messageHasString = typeof envelope.message.body === 'string'
     const messageHasParams = envelope.message.parameters.length > 0

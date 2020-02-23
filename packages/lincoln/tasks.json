@@ -7,7 +7,7 @@
       "rimraf lib"
     ],
     "upgrade": [
-      "npm-check -y"
+      "npx npm-check -y"
     ]
   }
 }
