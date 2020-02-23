@@ -1,7 +1,7 @@
 import { Subscription } from 'rxjs'
 
 import { Lincoln } from './Lincoln'
-import { LincolnEnvelope } from './LincolnEnvelope'
+import { LincolnEnvelope } from './Interfaces/LincolnEnvelope'
 
 export abstract class LincolnLog {
   private readonly subscription: Subscription

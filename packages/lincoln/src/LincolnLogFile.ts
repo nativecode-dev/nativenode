@@ -3,8 +3,8 @@ import { createStream, RotatingFileStream } from 'rotating-file-stream'
 
 import { Lincoln } from './Lincoln'
 import { LincolnLog } from './LincolnLog'
-import { LincolnEnvelope } from './LincolnEnvelope'
-import { LincolnLogFileOptions } from './LincolnLogFileOptions'
+import { LincolnEnvelope } from './Interfaces/LincolnEnvelope'
+import { LincolnLogFileOptions } from './Interfaces/LincolnLogFileOptions'
 
 const DefaultLincolnLogFileOptions: Partial<LincolnLogFileOptions> = {
   directory: process.cwd(),

@@ -1,12 +1,12 @@
 import { Merge } from '@nnode/common'
 import { Subject, Subscription } from 'rxjs'
 
-import { LincolnMessage } from './LincolnMessage'
-import { LincolnEnvelope } from './LincolnEnvelope'
-import { LincolnOptions } from './LincolnOptions'
-import { createMessage } from './CreateMessage'
-import { LincolnMessageType } from './LincolnMessageType'
-import { LincolnLogTransform } from './LincolnLogTransform'
+import { LincolnMessage } from './Interfaces/LincolnMessage'
+import { LincolnEnvelope } from './Interfaces/LincolnEnvelope'
+import { LincolnOptions } from './Interfaces/LincolnOptions'
+import { createMessage } from './Functions/CreateMessage'
+import { LincolnMessageType } from './Interfaces/LincolnMessageType'
+import { LincolnLogTransform } from './Interfaces/LincolnLogTransform'
 
 const DefaultOptions: Partial<LincolnOptions> = {
   namespaceSeparator: ':',

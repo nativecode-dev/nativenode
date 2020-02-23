@@ -1,7 +1,7 @@
-import { Lincoln } from './Lincoln'
+import { Lincoln } from '../Lincoln'
 import { createOptions } from './CreateOptions'
-import { LincolnLogTransform } from './LincolnLogTransform'
-import { LincolnOptions } from './LincolnOptions'
+import { LincolnLogTransform } from '../Interfaces/LincolnLogTransform'
+import { LincolnOptions } from '../Interfaces/LincolnOptions'
 
 export function createLogger(namespace: string | LincolnOptions, transformers: LincolnLogTransform[] = []): Lincoln {
   const options = typeof namespace === 'string' ? createOptions(namespace) : namespace

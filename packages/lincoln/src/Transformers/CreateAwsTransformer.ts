@@ -1,4 +1,4 @@
-import { LincolnMessage } from '../LincolnMessage'
+import { LincolnMessage } from '../Interfaces/LincolnMessage'
 
 const PATTERN_ACCESS_KEY = /\s{0}([A-Z0-9]{20})\s?/gim
 const PATTERN_SECRET_KEY = /\s{0}([A-Za-z0-9/+=]{40})\s?/gim

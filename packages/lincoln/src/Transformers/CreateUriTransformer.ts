@@ -1,4 +1,4 @@
-import { LincolnMessage } from '../LincolnMessage'
+import { LincolnMessage } from '../Interfaces/LincolnMessage'
 
 const PATTERN = /((?:git|http[s]?|ftp|ssh):\/\/)(?:.*):(?:.*)@([a-zA-Z0-9\.]+)/gim
 

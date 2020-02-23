@@ -1,5 +1,5 @@
 import { LincolnLog } from './LincolnLog'
-import { LincolnEnvelope } from './LincolnEnvelope'
+import { LincolnEnvelope } from './Interfaces/LincolnEnvelope'
 
 export class LincolnLogConsole extends LincolnLog {
   protected initialize(): Promise<void> {
