@@ -14,21 +14,20 @@
         ".gitignore",
         ".gitlab-ci.yml",
         ".gitmodules",
+        ".mocharc.json",
+        ".npmrc",
         ".npmignore",
+        ".nycrc.json",
         ".prettierrc",
-        "cli-tasks",
         "lerna",
-        "mocha.opts",
-        "nofrills.png",
         "package-lock.json",
-        "package.json",
         "tasks.json",
         "tsconfig.json",
         "tsconfig.settings.json",
         "tslint.json",
-        "*.md",
         "LICENSE",
-        "lib/"
+        "lib/",
+        "*.md"
       ],
       "loglevel": "verbose",
       "message": "[skip ci]: publish",
@@ -36,40 +35,6 @@
     },
     "run": {
       "stream": true
-    },
-    "version": {
-      "allowBranch": [
-        "develop",
-        "master",
-        "feature/"
-      ],
-      "conventionalCommits": true,
-      "ignoreChanges": [
-        ".ci-env",
-        ".editorconfig",
-        ".attributes",
-        ".gitignore",
-        ".gitlab-ci.yml",
-        ".gitmodules",
-        ".npmignore",
-        ".prettierrc",
-        "cli-tasks",
-        "lerna",
-        "mocha.opts",
-        "nofrills.png",
-        "package-lock.json",
-        "package.json",
-        "tasks.json",
-        "tsconfig.json",
-        "tsconfig.settings.json",
-        "tslint.json",
-        "*.md",
-        "LICENSE",
-        "lib/"
-      ],
-      "loglevel": "verbose",
-      "message": "[skip ci]: publish",
-      "yes": true
     }
   },
   "loglevel": "error",
@@ -78,7 +43,6 @@
     "--silent"
   ],
   "packages": [
-    "core/*",
     "packages/*"
   ],
   "version": "independent"
