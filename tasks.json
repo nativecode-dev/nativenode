@@ -17,6 +17,7 @@
     ],
     "ci:install": [
       "npm ci",
+      "npm config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}",
       "lerna bootstrap"
     ],
     "ci:publish:canary": [
