@@ -1,6 +1,6 @@
 {
   "name": "@nnode/lincoln",
-  "version": "0.0.1-next.0",
+  "version": "0.0.1",
   "description": "Provides a slim abstraction for logging.",
   "license": "MIT",
   "private": false,
@@ -23,7 +23,7 @@
   },
   "types": "./lib/index.d.ts",
   "dependencies": {
-    "@nnode/common": "^0.1.0-next.0",
+    "@nnode/common": "^0.1.0",
     "rotating-file-stream": "^2.0.2",
     "rxjs": "^6.5.4"
   },
