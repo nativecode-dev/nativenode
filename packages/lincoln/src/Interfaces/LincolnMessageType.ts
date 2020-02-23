@@ -6,4 +6,9 @@ export enum LincolnMessageType {
   warn = 1 << 3,
   error = 1 << 4,
   fatal = 1 << 5,
+
+  All = info | silly | debug | trace | warn | error | fatal,
+  Debugging = info | silly | debug | warn | error | fatal,
+  Errors = error | fatal,
+  Informational = info | warn | error | fatal,
 }

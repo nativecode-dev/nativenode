@@ -1,6 +1,6 @@
 import debug from 'debug'
 
-import { LincolnLog, LincolnEnvelope } from '@nnode/lincoln'
+import { LincolnLog, LincolnEnvelope, LincolnMessageType, Lincoln } from '@nnode/lincoln'
 
 interface DebugCache {
   [key: string]: debug.IDebugger
@@ -9,11 +9,19 @@ interface DebugCache {
 const Cache: DebugCache = {}
 
 export class LincolnLogDebug extends LincolnLog {
+  constructor(lincoln: Lincoln, display: LincolnMessageType) {
+    super(lincoln, display)
+  }
+
   protected initialize(): Promise<void> {
     return Promise.resolve()
   }
 
   protected render(envelope: LincolnEnvelope): Promise<void> {
+    if (this.flags.has(envelope.message.type) === false) {
+      return Promise.resolve()
+    }
+
     const scope = envelope.scope
     const logger: debug.IDebugger = Cache[scope] ? Cache[scope] : (Cache[scope] = debug(scope))
 

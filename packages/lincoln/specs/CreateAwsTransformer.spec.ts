@@ -6,8 +6,8 @@ import { parse } from 'ini'
 
 import expect from './expect'
 
-import { createLogger } from '../src/CreateLogger'
-import { LincolnMessageType } from '../src/LincolnMessageType'
+import { createLogger } from '../src/Functions/CreateLogger'
+import { LincolnMessageType } from '../src/Interfaces/LincolnMessageType'
 import { createAwsTransformer } from '../src/Transformers/CreateAwsTransformer'
 
 const lincoln = createLogger('lincoln:test')

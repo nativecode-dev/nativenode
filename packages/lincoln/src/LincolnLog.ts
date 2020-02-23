@@ -1,17 +1,26 @@
 import { Subscription } from 'rxjs'
+import { FlagEnums } from '@nnode/common'
 
 import { Lincoln } from './Lincoln'
 import { LincolnEnvelope } from './Interfaces/LincolnEnvelope'
+import { LincolnMessageType } from './Interfaces/LincolnMessageType'
 
 export abstract class LincolnLog {
   private readonly subscription: Subscription
 
-  constructor(lincoln: Lincoln) {
+  constructor(lincoln: Lincoln, protected readonly display: LincolnMessageType = LincolnMessageType.Informational) {
     this.subscription = lincoln.subscribe(
       envelope => this.next(envelope),
       error => this.error(error),
-      () => this.complete(),
+      async () => {
+        this.subscription.unsubscribe()
+        await this.complete()
+      },
     )
+  }
+
+  protected get flags(): FlagEnums {
+    return new FlagEnums(this.display)
   }
 
   protected abstract initialize(): Promise<void>
