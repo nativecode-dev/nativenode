@@ -5,7 +5,7 @@ stages:
 
 before_script:
   - git submodule update --init .citools
-  - source .ci-env
+  - source .ci/setup-env.sh
   - npx -p @nofrills/tasks@^10.0.0 cli-tasks ci:install
   - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
 

@@ -22,6 +22,9 @@
     "upgrade": "cli-tasks upgrade"
   },
   "types": "./lib/index.d.ts",
-  "dependencies": {},
+  "dependencies": {
+    "@nnode/common": "^0.1.0",
+    "memory-streams": "^0.1.3"
+  },
   "devDependencies": {}
 }
