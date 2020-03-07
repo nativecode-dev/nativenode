@@ -1,3 +1,4 @@
+import { Plugin } from './Plugin'
 import { PluginHost } from './PluginHost'
 import { PluginHostOptions } from './PluginHostOptions'
 
