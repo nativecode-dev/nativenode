@@ -5,7 +5,7 @@
     "ts"
   ],
   "recursive": true,
-  "reporter": "nyan",
+  "reporter": "spec",
   "require": [
     "source-map-support/register",
     "ts-node/register"
