@@ -1,8 +1,12 @@
 export interface Plugin {
+  readonly activated: boolean
+  readonly enabled: boolean
+  readonly name: string
+
   description?: string
-  enabled: boolean
-  name: string
 
   activate(): Promise<void>
   deactivate(): Promise<void>
+  disable(): Promise<void>
+  enable(): Promise<void>
 }
