@@ -1,6 +1,7 @@
 image: node:latest
 
 stages:
+  - merge
   - publish
 
 before_script:
@@ -20,6 +21,13 @@ continuous:
     - /fix\/.*/
   script:
     - npx -p @nofrills/tasks cli-tasks ci:publish:canary
+
+merge:
+  stage: merge
+  only:
+    - merge_request
+  script:
+    - npx -p @nofrills/tasks cli-tasks ci:test
 
 prerelease:
   stage: publish
