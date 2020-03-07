@@ -21,6 +21,13 @@ continuous:
   script:
     - npx -p @nofrills/tasks cli-tasks ci:publish:canary
 
+merge:
+  stage: merged
+  only:
+    - merge_request
+  script:
+    - npx -p @nofrills/tasks cli-tasks ci:test
+
 prerelease:
   stage: publish
   only:
