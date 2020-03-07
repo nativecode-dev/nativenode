@@ -27,7 +27,7 @@
     "deepmerge": "~4.2.2",
     "promise-parallel-throttle": "~3.3.0",
     "uppercamelcase": "~3.0.0",
-    "validator": "~12.1.0",
+    "validator": "^12.2.0",
     "zipcodes-regex": "~1.0.3"
   },
   "devDependencies": {
