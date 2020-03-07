@@ -12,12 +12,12 @@
       "[build:compile]"
     ],
     "ci:configure": [
-      ".citools/setup-git ${BUILD_REPO_BRANCH} ${BUILD_REPO_GIT} ${BUILD_REPO_EMAIL}",
-      ".citools/setup-ssh ${BUILD_REPO_DOMAIN} ${BUILD_REPO_SSHKEY_PATH} ${BUILD_REPO_DOMAIN_SSH}"
+      "@.citools/setup-git ${BUILD_REPO_BRANCH} ${BUILD_REPO_GIT} ${BUILD_REPO_EMAIL}",
+      "@.citools/setup-ssh ${BUILD_REPO_DOMAIN} ${BUILD_REPO_SSHKEY_PATH} ${BUILD_REPO_DOMAIN_SSH}"
     ],
     "ci:install": [
       "npm ci",
-      "npm config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}",
+      "@npm config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}",
       "lerna bootstrap"
     ],
     "ci:publish:canary": [
@@ -37,7 +37,7 @@
     ],
     "ci:test": [
       "[ci:build]",
-      "nyc mocha"
+      "nyc mocha --config .ci/.mocharc.json"
     ],
     "clean": [
       "rimraf .cache",
@@ -59,16 +59,14 @@
       "[source:lint]"
     ],
     "source:format": [
-      "jsonsort *.json",
-      "jsonsort packages/*/*.json",
-      "prettier --loglevel silent --write \"*/*/specs/**/*.ts\"",
-      "prettier --loglevel silent --write \"*/*/src/**/*.ts\""
+      "tasks sort 'packages/**/*.json'",
+      "@prettier --loglevel silent --write '*/*/src/**/*.ts'"
     ],
     "source:lint": [
       "tslint --project tsconfig.json --config tslint.json"
     ],
     "test": [
-      "[build]",
+      "[build:compile]",
       "nyc mocha"
     ],
     "upgrade": [
