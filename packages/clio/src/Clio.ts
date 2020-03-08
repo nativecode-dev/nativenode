@@ -1,3 +1,4 @@
+import os from 'os'
 import readline from 'readline'
 
 import { Merge } from '@nnode/common'
@@ -49,6 +50,10 @@ export class Clio {
     }
 
     const lines = transform(message, this.options)
-    lines.map(line => this.stdio.stdout.write(line))
+
+    lines.map(line => {
+      this.stdio.stdout.write(line)
+      this.stdio.stdout.write(os.EOL)
+    })
   }
 }
