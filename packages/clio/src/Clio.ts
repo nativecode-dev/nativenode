@@ -29,7 +29,6 @@ export class Clio {
 
   constructor(options: Partial<ClioOptions> = {}, private readonly stdio: ClioIo = DefaultClioIo) {
     this.options = Merge<ClioOptions>(DefaultClioOptions, options)
-
     this.reader = readline.createInterface(this.stdio.stdin, this.stdio.stdout, undefined, false)
   }
 
@@ -49,6 +48,7 @@ export class Clio {
       return
     }
 
-    return transform(message, this.options).forEach(line => this.stdio.stdout.write(line))
+    const lines = transform(message, this.options)
+    lines.map(line => this.stdio.stdout.write(line))
   }
 }
