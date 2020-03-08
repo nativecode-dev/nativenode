@@ -44,16 +44,30 @@ export class Clio {
     })
   }
 
-  write(message: string | string[], conditions: boolean[] = [true]): void {
+  async write(message: string | string[], conditions: boolean[] = [true]): Promise<void> {
     if (conditions.some(condition => condition === false)) {
       return
     }
 
+    const stdout_write = (line: string) => {
+      return new Promise((resolve, reject) => {
+        this.stdio.stdout.write(line, error => {
+          if (error) {
+            reject(error)
+          } else {
+            resolve()
+          }
+        })
+      })
+    }
+
     const lines = transform(message, this.options)
 
-    lines.map(line => {
-      this.stdio.stdout.write(line)
-      this.stdio.stdout.write(os.EOL)
-    })
+    await Promise.all(
+      lines.map(async line => {
+        await stdout_write(line)
+        await stdout_write(os.EOL)
+      }),
+    )
   }
 }
