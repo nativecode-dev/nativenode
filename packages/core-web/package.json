@@ -1,0 +1,42 @@
+{
+  "name": "@nnode/core-web",
+  "version": "0.0.0",
+  "description": "SOSUS",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nativecode-dev/sosus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nativecode-dev/sosus/issues"
+  },
+  "homepage": "https://github.com/nativecode-dev/sosus/tree/master/packages/core-web#readme",
+  "author": "opensource@nativecode.com",
+  "keywords": [
+    "SOSUS"
+  ],
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "directories": {
+    "lib": "lib",
+    "test": "specs"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "upgrade": "npx npm-check -y"
+  },
+  "dependencies": {
+    "@nnode/core": "^0.0.0",
+    "@nnode/core-data": "^0.0.0",
+    "express": "~4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.3",
+    "@types/node": "^13.9.0"
+  }
+}

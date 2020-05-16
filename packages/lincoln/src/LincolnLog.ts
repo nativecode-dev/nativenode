@@ -8,8 +8,8 @@ export abstract class LincolnLog {
 
   constructor(lincoln: Lincoln) {
     this.subscription = lincoln.subscribe(
-      envelope => this.next(envelope),
-      error => this.error(error),
+      (envelope) => this.next(envelope),
+      (error) => this.error(error),
       () => this.complete(),
     )
   }
