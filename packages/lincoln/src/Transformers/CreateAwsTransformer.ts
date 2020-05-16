@@ -10,7 +10,7 @@ export function createAwsTransformer(message: LincolnMessage): LincolnMessage {
       .replace(PATTERN_ACCESS_KEY, '[AWS_ACCESS_KEY_ID]')
   }
 
-  message.parameters = message.parameters.map(parameter => {
+  message.parameters = message.parameters.map((parameter) => {
     if (typeof parameter === 'string') {
       return parameter
         .replace(PATTERN_SECRET_KEY, '[AWS_SECRET_ACCESS_KEY]')

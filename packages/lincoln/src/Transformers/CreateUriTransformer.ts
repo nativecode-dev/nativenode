@@ -6,7 +6,7 @@ export function createUriTransformer(message: LincolnMessage): LincolnMessage {
   if (typeof message.body === 'string') {
     message.body = message.body.replace(PATTERN, '$1[protected]@$2')
 
-    message.parameters = message.parameters.map(parameter => {
+    message.parameters = message.parameters.map((parameter) => {
       if (typeof parameter === 'string') {
         return parameter.replace(PATTERN, '$1[protected]@$2')
       }

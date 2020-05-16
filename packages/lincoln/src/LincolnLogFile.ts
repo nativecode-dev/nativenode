@@ -33,7 +33,7 @@ export class LincolnLogFile extends LincolnLog {
 
   protected render(envelope: LincolnEnvelope): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.logfile.write(JSON.stringify(envelope.message), error => {
+      this.logfile.write(JSON.stringify(envelope.message), (error) => {
         if (error) {
           reject(error)
         } else {

@@ -55,8 +55,8 @@ export class Lincoln extends Subject<LincolnEnvelope> {
     const lincoln = new Lincoln(options)
 
     const subscription = lincoln.subscribe(
-      value => this.next(value),
-      error => this.error(error),
+      (value) => this.next(value),
+      (error) => this.error(error),
       () => this.complete(),
     )
 

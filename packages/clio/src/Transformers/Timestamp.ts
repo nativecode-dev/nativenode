@@ -6,15 +6,12 @@ function addTimestamp(line: string, options: ClioOptions): string {
     const date = now.toLocaleDateString()
     const time = now.toLocaleTimeString()
 
-    return options.format.timestampFormat
-      .replace('{:date}', date)
-      .replace('{:time}', time)
-      .replace('{:line}', line)
+    return options.format.timestampFormat.replace('{:date}', date).replace('{:time}', time).replace('{:line}', line)
   }
 
   return line
 }
 
 export function timestamp(lines: string[], options: ClioOptions): string[] {
-  return lines.map(line => addTimestamp(line, options))
+  return lines.map((line) => addTimestamp(line, options))
 }

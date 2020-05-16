@@ -9,11 +9,11 @@ const DefaultOptions: Partial<deepmerge.Options> = {
 }
 
 export function Merge<T>(...objects: Array<DeepPartial<T>>): T {
-  const partials = objects.map<Partial<T>>(item => item as Partial<T>)
+  const partials = objects.map<Partial<T>>((item) => item as Partial<T>)
   return deepmerge.all<T>(partials, DefaultOptions)
 }
 
 export function MergeAllowDupes<T>(...objects: Array<DeepPartial<T>>): T {
-  const partials = objects.map<Partial<T>>(item => item as Partial<T>)
+  const partials = objects.map<Partial<T>>((item) => item as Partial<T>)
   return deepmerge.all<T>(partials, { clone: true })
 }
