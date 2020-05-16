@@ -34,24 +34,24 @@ export class Clio {
   }
 
   read(): Promise<string> {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       const listener = (input: string) => {
         this.reader.off('line', listener)
         resolve(input)
       }
 
-      this.reader.on('line', input => listener(input))
+      this.reader.on('line', (input) => listener(input))
     })
   }
 
   async write(message: string | string[], conditions: boolean[] = [true]): Promise<void> {
-    if (conditions.some(condition => condition === false)) {
+    if (conditions.some((condition) => condition === false)) {
       return
     }
 
-    const stdout_write = (line: string) => {
+    const stdoutWrite = (line: string) => {
       return new Promise((resolve, reject) => {
-        this.stdio.stdout.write(line, error => {
+        this.stdio.stdout.write(line, (error) => {
           if (error) {
             reject(error)
           } else {
@@ -64,9 +64,9 @@ export class Clio {
     const lines = transform(message, this.options)
 
     await Promise.all(
-      lines.map(async line => {
-        await stdout_write(line)
-        await stdout_write(os.EOL)
+      lines.map(async (line) => {
+        await stdoutWrite(line)
+        await stdoutWrite(os.EOL)
       }),
     )
   }
