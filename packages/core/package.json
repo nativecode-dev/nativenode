@@ -1,7 +1,7 @@
 {
   "name": "@nnode/core",
   "version": "2.0.1-next.1",
-  "description": "SOSUS",
+  "description": "NativeCode Core Library",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   "homepage": "https://github.com/nativecode-dev/sosus/tree/master/packages/core#readme",
   "author": "opensource@nativecode.com",
   "keywords": [
-    "SOSUS"
+    "core-lib"
   ],
   "main": "lib/index.js",
   "files": [
