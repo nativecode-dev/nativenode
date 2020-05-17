@@ -1,7 +1,8 @@
 import deepmerge from 'deepmerge'
 
+import { DeepPartial } from 'ts-essentials'
+
 import { Dedupe } from './Dedupe'
-import { DeepPartial } from './DeepPartial'
 
 const DefaultOptions: Partial<deepmerge.Options> = {
   arrayMerge: Dedupe,

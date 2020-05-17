@@ -1,4 +1,4 @@
-import { DeepPartial } from '../DeepPartial'
+import { DeepPartial } from 'ts-essentials'
 
 export interface RedisConfig {
   host: string

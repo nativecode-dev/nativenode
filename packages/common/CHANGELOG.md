@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/nativecode-dev/nativenode/compare/@nnode/common@0.4.0...@nnode/common@0.4.1) (2020-05-17)
+
+
+### Bug Fixes
+
+* **replace DeepPartial with ts-essentials:** replaced DeepPartial with ts-essentialsaffects: @nnode/common, @nnode/coreBREAKING CHANGE:replaced DeepPartial with ts-essentials ([4807740](https://github.com/nativecode-dev/nativenode/commit/4807740309213961a2d7abe1138c9905dc3b8d74))
+
+
+
+
+
 # [0.4.0](https://github.com/nativecode-dev/nativenode/compare/@nnode/common@0.4.0-next.0...@nnode/common@0.4.0) (2020-05-16)
 
 **Note:** Version bump only for package @nnode/common

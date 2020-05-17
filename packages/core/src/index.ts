@@ -11,7 +11,6 @@ export * from './utils'
 
 export * from './Application'
 export * from './Container'
-export * from './DeepPartial'
 export * from './EncodingType'
 export * from './Fetch'
 export * from './Hash'
@@ -24,3 +23,5 @@ export * from './QueueJob'
 export * from './QueueWorker'
 export * from './Runnable'
 export * from './RxJs'
+
+export { DeepPartial } from 'ts-essentials'

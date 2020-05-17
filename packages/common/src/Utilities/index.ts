@@ -1,5 +1,4 @@
 export * from './Dedupe'
-export * from './DeepPartial'
 export * from './DictionaryOf'
 export * from './Merge'
 export * from './MergeAll'
@@ -8,3 +7,5 @@ export * from './MimeTypeValue'
 export * from './ProcessTimeout'
 export * from './Slugify'
 export * from './Throttle'
+
+export { DeepPartial } from 'ts-essentials'
