@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/nativecode-dev/sosus/compare/@nnode/core@0.1.2-next.1...@nnode/core@0.1.2) (2020-05-17)
+
+
+### Bug Fixes
+
+* atob and btoa exports ([16db4fa](https://github.com/nativecode-dev/sosus/commit/16db4faf209e6017faa280878022cc05b4ca4927))
+* publish ([2ea234a](https://github.com/nativecode-dev/sosus/commit/2ea234ab8e3bb12774f5045edeabead414aedfce))
+* re-export btoa and atob ([fc5159e](https://github.com/nativecode-dev/sosus/commit/fc5159e1b0bb9e1ecb97d859580ac48cfbedbd12))
+
+
+
+
+
 ## [0.1.1](https://github.com/nativecode-dev/sosus/compare/@nnode/core@0.1.0...@nnode/core@0.1.1) (2020-05-17)
 
 
