@@ -101,7 +101,7 @@ export abstract class Documents<T extends Document> {
     }
   }
 
-  keyId(doc: DeepPartial<T>): string {
+  keyId(doc: T | DeepPartial<T>): string {
     return this.createKey(doc, ...this.keyProperties)
   }
 
@@ -124,7 +124,7 @@ export abstract class Documents<T extends Document> {
       .on('error', (error) => this.log.error(error))
   }
 
-  async update(updates: DeepPartial<T>): Promise<T & PouchDB.Core.IdMeta & PouchDB.Core.RevisionIdMeta> {
+  async update(updates: T): Promise<T & PouchDB.Core.IdMeta & PouchDB.Core.RevisionIdMeta> {
     const defaults = this.empty()
     const request = Merge<any>([defaults, updates])
     const id = this.keyId(request)
