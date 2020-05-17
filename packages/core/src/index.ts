@@ -5,6 +5,9 @@ export * from '@nofrills/types'
 export * from 'node-schedule'
 export * from 'tsyringe'
 
+export * as atob from 'atob'
+export * as btoa from 'btoa'
+
 export { DeepPartial } from 'ts-essentials'
 
 export * from './config'
