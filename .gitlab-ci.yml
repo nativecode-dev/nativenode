@@ -16,21 +16,18 @@ cache:
 
 continuous:
   stage: publish
+  except:
+    - tags
   only:
     - /feature\/.*/
     - /fix\/.*/
   script:
     - npx -p @nofrills/tasks cli-tasks ci:publish:canary
 
-merge:
-  stage: merge
-  only:
-    - merge_request
-  script:
-    - npx -p @nofrills/tasks cli-tasks ci:test
-
 prerelease:
   stage: publish
+  except:
+    - tags
   only:
     - develop
   script:
@@ -38,6 +35,8 @@ prerelease:
 
 release:
   stage: publish
+  except:
+    - tags
   only:
     - master
   script:
