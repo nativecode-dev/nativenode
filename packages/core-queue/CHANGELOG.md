@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/nativecode-dev/sosus/compare/@nnode/core-queue@1.0.3-next.0...@nnode/core-queue@1.0.3) (2020-05-17)
+
+**Note:** Version bump only for package @nnode/core-queue
+
+
+
+
+
 ## [1.0.2](https://github.com/nativecode-dev/sosus/compare/@nnode/core-queue@1.0.2-next.1...@nnode/core-queue@1.0.2) (2020-05-17)
 
 **Note:** Version bump only for package @nnode/core-queue

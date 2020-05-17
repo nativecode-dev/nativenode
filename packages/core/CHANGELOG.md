@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core@2.0.2-next.0...@nnode/core@3.0.0) (2020-05-17)
+
+
+### Bug Fixes
+
+* **removed lincoln from ApiRoute:** removed Lincoln from ApiRoute ([94c0531](https://github.com/nativecode-dev/sosus/commit/94c05316a11e8425c5f0bcdda68121909faca165))
+
+
+### BREAKING CHANGES
+
+* **removed lincoln from ApiRoute:** removed Lincoln from Api Route
+
+
+
+
+
 ## [2.0.1](https://github.com/nativecode-dev/sosus/compare/@nnode/core@2.0.1-next.1...@nnode/core@2.0.1) (2020-05-17)
 
 **Note:** Version bump only for package @nnode/core
