@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core@0.2.0...@nnode/core@1.0.0) (2020-05-17)
+
+
+### Features
+
+* **moving scheduling and queuing:** moved scheduling and queuing to core-queue ([f908058](https://github.com/nativecode-dev/sosus/commit/f908058fd982e078ffc3463b41f2c63451277060))
+
+
+### BREAKING CHANGES
+
+* **moving scheduling and queuing:** moved scheduling and queuing to core-queue
+
+
+
+
+
 # [0.2.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core@0.1.2...@nnode/core@0.2.0) (2020-05-17)
 
 

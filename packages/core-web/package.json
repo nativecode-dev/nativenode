@@ -1,6 +1,6 @@
 {
   "name": "@nnode/core-web",
-  "version": "1.0.0-next.0",
+  "version": "1.0.0",
   "description": "SOSUS",
   "license": "MIT",
   "repository": {
@@ -31,9 +31,9 @@
     "upgrade": "npx npm-check -y"
   },
   "dependencies": {
-    "@nnode/core": "^1.0.0-next.0",
-    "@nnode/core-data": "^1.2.1-next.1",
-    "@nnode/lincoln": "^0.3.1-next.0",
+    "@nnode/core": "^1.0.0",
+    "@nnode/core-data": "^1.2.1",
+    "@nnode/lincoln": "^0.3.0",
     "express": "~4.17.1"
   },
   "devDependencies": {
