@@ -1,6 +1,6 @@
 {
   "name": "@nnode/core",
-  "version": "2.0.1",
+  "version": "2.0.2-next.0",
   "description": "NativeCode Core Library",
   "license": "MIT",
   "repository": {
@@ -31,7 +31,7 @@
     "upgrade": "npx npm-check -y"
   },
   "dependencies": {
-    "@nnode/lincoln": "^0.3.2",
+    "@nnode/lincoln": "^0.3.3-next.0",
     "@nofrills/env": "~11.0.0",
     "@nofrills/fs": "~11.0.0",
     "@nofrills/types": "~10.0.2",

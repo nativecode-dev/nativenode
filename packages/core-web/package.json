@@ -1,6 +1,6 @@
 {
   "name": "@nnode/core-web",
-  "version": "1.0.2",
+  "version": "1.0.3-next.0",
   "description": "NativeCode Web Library",
   "license": "MIT",
   "repository": {
@@ -31,9 +31,9 @@
     "upgrade": "npx npm-check -y"
   },
   "dependencies": {
-    "@nnode/core": "^2.0.1",
-    "@nnode/core-data": "^1.2.3",
-    "@nnode/lincoln": "^0.3.2",
+    "@nnode/core": "^2.0.2-next.0",
+    "@nnode/core-data": "^1.2.4-next.0",
+    "@nnode/lincoln": "^0.3.3-next.0",
     "express": "~4.17.1"
   },
   "devDependencies": {
