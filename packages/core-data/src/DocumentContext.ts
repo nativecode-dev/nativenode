@@ -1,18 +1,19 @@
 import PouchDB from 'pouchdb'
 
-import { Logger, Merge } from '@nnode/core'
+import { Merge } from '@nnode/core'
+import { Lincoln } from '@nnode/lincoln'
 
 import { DocumentStore } from './DocumentStore'
 import { CouchConfig } from './config/CouchConfig'
 
-const log = Logger.extend('document-context')
-
 export abstract class DocumentContext<T extends CouchConfig> {
+  private readonly log: Lincoln
   protected readonly store: DocumentStore
 
-  constructor(public readonly config: T) {
-    this.store = new DocumentStore(config)
-    log.debug('create-document-context', config)
+  constructor(public readonly config: T, logger: Lincoln) {
+    this.log = logger.extend('document-context')
+    this.store = new DocumentStore(config, this.log)
+    this.log.debug('create-document-context', config)
   }
 
   get name() {
@@ -43,12 +44,10 @@ export abstract class DocumentContext<T extends CouchConfig> {
       push: undefined,
     }
 
-    log.debug('sync-live', config.name, options)
+    this.log.debug('sync-live', config.name, options)
 
-    return this.store
-      .sync(remote, options)
-      .on('change', (change) => log.trace(change))
-      .on('error', (error) => log.error(error))
+    return this.store.sync(remote, options).on('change', (change) => this.log.trace(change))
+    // .on('error', (error) => this.log.error(error))
   }
 
   async sync(config: CouchConfig, options?: PouchDB.Replication.SyncOptions) {
@@ -56,7 +55,7 @@ export abstract class DocumentContext<T extends CouchConfig> {
 
     return new Promise<PouchDB.Replication.SyncResultComplete<{}> | null>((resolve, reject) => {
       const remote = new PouchDB(config.name, config)
-      log.debug('sync-context', config)
+      this.log.debug('sync-context', config)
       this.store.sync(remote, opts, (error, results) => {
         if (error) {
           reject(error)

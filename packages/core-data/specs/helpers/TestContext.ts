@@ -5,6 +5,7 @@ import { Document } from '../../src/Document'
 import { Documents } from '../../src/Documents'
 import { DocumentContext } from '../../src/DocumentContext'
 import { CouchConfig } from '../../src/config/CouchConfig'
+import { createLogger } from '@nnode/lincoln'
 
 export interface EnvironmentVariable {
   name: string
@@ -21,8 +22,8 @@ export interface User {
 export interface UserDocument extends Document, User {}
 
 export class TestContext extends DocumentContext<CouchConfig> {
-  users: Users = new Users('user', this.store)
-  variables: EnvironmentVariables = new EnvironmentVariables('env', this.store)
+  users: Users = new Users('user', this.store, createLogger('test'))
+  variables: EnvironmentVariables = new EnvironmentVariables('env', this.store, createLogger('test'))
 
   protected createIndexDocuments() {
     return Promise.resolve()

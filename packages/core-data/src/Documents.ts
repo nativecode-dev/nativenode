@@ -1,8 +1,9 @@
-import { Logger, Merge, DeepPartial } from '@nnode/core'
+import { Lincoln } from '@nnode/lincoln'
+import { Merge, DeepPartial } from '@nnode/core'
 
 import { Document } from './Document'
-import { BaseDocumentStore } from './DocumentStore'
 import { CouchConfig } from './config/CouchConfig'
+import { BaseDocumentStore } from './DocumentStore'
 
 export type Meta = PouchDB.Core.IdMeta | PouchDB.Core.RevisionIdMeta
 
@@ -13,9 +14,11 @@ export interface PropertyNames<T extends Document> {
 export abstract class Documents<T extends Document> {
   abstract readonly indexes: PouchDB.Find.CreateIndexOptions[]
 
-  protected readonly log = Logger.extend(this.type)
+  protected readonly log: Lincoln
 
-  constructor(public readonly type: string, private readonly store: BaseDocumentStore<T>) {}
+  constructor(public readonly type: string, private readonly store: BaseDocumentStore<T>, logger: Lincoln) {
+    this.log = logger.extend(type)
+  }
 
   async all(selector?: PouchDB.Find.FindRequest<T>): Promise<Array<T>> {
     const required: PouchDB.Find.FindRequest<T> = {
@@ -58,7 +61,7 @@ export abstract class Documents<T extends Document> {
     const response = await this.store.remove({ _id: id, _rev: rev })
 
     if (response.ok === false) {
-      this.log.error(response)
+      // this.log.error(response)
       throw new Error('could not delete ${response.id}')
     }
 
@@ -115,7 +118,7 @@ export abstract class Documents<T extends Document> {
       .sync(remote, { live: true, retry: true })
       .on('change', (change) => this.log.trace(change))
       .on('paused', (info) => this.log.trace('paused', info))
-      .on('error', (error) => this.log.error(error))
+    // .on('error', (error) => this.log.error(error))
   }
 
   async update(updates: DeepPartial<T | (T & Meta)>): Promise<T & Meta> {

@@ -1,6 +1,6 @@
 import { Express } from 'express'
+import { Merge } from '@nnode/core'
 import { Lincoln } from '@nnode/lincoln'
-import { Merge, Logger } from '@nnode/core'
 import { Documents, Document } from '@nnode/core-data'
 
 import { Route } from './Route'
@@ -10,9 +10,9 @@ import { createResponse, createResponseCollection } from './Response'
 export abstract class ApiRoute extends Route {
   protected readonly log: Lincoln
 
-  constructor(readonly name: string, router: Express) {
+  constructor(readonly name: string, router: Express, logger: Lincoln) {
     super(router)
-    this.log = Logger.extend(name)
+    this.log = logger.extend(name)
   }
 
   registerById<T extends Document>(route: string, context: Documents<T>) {

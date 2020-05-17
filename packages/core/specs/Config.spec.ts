@@ -1,9 +1,9 @@
 import { DeepPartial } from 'ts-essentials'
 
 import { expect } from './helpers'
-import { Logger } from '../src/Logger'
 import { Config } from '../src/config/Config'
 import { Configuration, DefaultConfig } from '../src/config/Configuration'
+import { createLogger } from '@nnode/lincoln'
 
 interface TestConfig extends Config {
   array: string[]
@@ -18,7 +18,7 @@ const DefaultTestConfig: DeepPartial<TestConfig> = {
 
 describe('when using Configuration', () => {
   it('should load default config', async () => {
-    const loader = new Configuration<TestConfig>('.sosus-test.json', DefaultTestConfig, Logger.extend('test'))
+    const loader = new Configuration<TestConfig>('.sosus-test.json', DefaultTestConfig, createLogger('test'))
     const config = await loader.load()
     expect(config.array).to.deep.equal(['string'])
   })

@@ -1,12 +1,14 @@
 import PouchDB from 'pouchdb'
 
-import { Logger, Throttle, injectable, scoped, Lifecycle, DeepPartial, Merge } from '@nnode/core'
+import { Lincoln } from '@nnode/lincoln'
+import { Throttle, injectable, scoped, Lifecycle, DeepPartial, Merge } from '@nnode/core'
 
 export abstract class BaseDocumentStore<T> extends PouchDB<T> {
-  private readonly log = Logger.extend('base-document-store')
+  private readonly log: Lincoln
 
-  constructor(options: PouchDB.Configuration.DatabaseConfiguration) {
+  constructor(options: PouchDB.Configuration.DatabaseConfiguration, logger: Lincoln) {
     super(options.name, options)
+    this.log = logger.extend('base-document-store')
     this.log.trace('ctor', options)
   }
 
@@ -27,7 +29,7 @@ export abstract class BaseDocumentStore<T> extends PouchDB<T> {
 @injectable()
 @scoped(Lifecycle.ContainerScoped)
 export class DocumentStore extends BaseDocumentStore<any> {
-  constructor(options: PouchDB.Configuration.DatabaseConfiguration) {
-    super(options)
+  constructor(options: PouchDB.Configuration.DatabaseConfiguration, logger: Lincoln) {
+    super(options, logger)
   }
 }

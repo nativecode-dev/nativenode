@@ -1,3 +1,4 @@
+export * from './errors'
 export * from './scheduling'
 
 export * from 'node-schedule'

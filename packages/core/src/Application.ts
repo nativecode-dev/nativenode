@@ -1,7 +1,6 @@
-import { Lincoln } from '@nnode/lincoln'
+import { Lincoln, createLogger } from '@nnode/lincoln'
 import { DependencyContainer, container } from 'tsyringe'
 
-import { LoggerType, Logger } from './Logger'
 import { Config, Configuration } from './config'
 import { Runnable, RunnableConstructor } from './Runnable'
 
@@ -42,7 +41,7 @@ export abstract class Application<TConfig extends Config> {
   protected async setup(): Promise<TConfig> {
     const config = await this.configuration.load()
 
-    this.container.register<Lincoln>(LoggerType, { useValue: Logger })
+    this.container.register<Lincoln>(Symbol('logger'), { useValue: createLogger(this.name) })
 
     this.dependencies(this.container, config)
 

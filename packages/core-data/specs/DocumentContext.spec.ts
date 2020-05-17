@@ -4,9 +4,10 @@ import { Throttle } from '@nnode/core'
 
 import { expect } from './helpers'
 import { DefaultTestContextConfig, TestContext } from './helpers/TestContext'
+import { createLogger } from '@nnode/lincoln'
 
 describe('when using DocumentContext', () => {
-  const context = new TestContext(DefaultTestContextConfig)
+  const context = new TestContext(DefaultTestContextConfig, createLogger('test'))
 
   before(async () => {
     await context.initialize()
