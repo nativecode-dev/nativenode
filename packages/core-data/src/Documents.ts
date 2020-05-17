@@ -4,7 +4,7 @@ import { Document } from './Document'
 import { BaseDocumentStore } from './DocumentStore'
 import { CouchConfig } from './config/CouchConfig'
 
-export type Meta = PouchDB.Core.IdMeta & PouchDB.Core.RevisionIdMeta
+export type Meta = PouchDB.Core.IdMeta | PouchDB.Core.RevisionIdMeta
 
 export interface PropertyNames<T extends Document> {
   (document: T): string[]
