@@ -1,6 +1,5 @@
 import { Express } from 'express'
 import { Merge } from '@nnode/core'
-import { Lincoln } from '@nnode/lincoln'
 import { Documents, Document } from '@nnode/core-data'
 
 import { Route } from './Route'
@@ -8,11 +7,8 @@ import { pagination } from './PageModel'
 import { createResponse, createResponseCollection } from './Response'
 
 export abstract class ApiRoute extends Route {
-  protected readonly log: Lincoln
-
-  constructor(readonly name: string, router: Express, logger: Lincoln) {
+  constructor(readonly name: string, router: Express) {
     super(router)
-    this.log = logger.extend(name)
   }
 
   registerById<T extends Document>(route: string, context: Documents<T>) {
@@ -43,16 +39,13 @@ export abstract class ApiRoute extends Route {
           filter.selector = Merge<PouchDB.Find.Selector>([filter.selector, json])
         }
       } catch (error) {
-        this.log.error(error)
         return res.status(400).send('invalid query')
       }
 
       try {
         const movies = await context.all(filter)
         res.json(createResponseCollection(movies, pagemodel))
-      } catch (error) {
-        this.log.error(error)
-      }
+      } catch (error) {}
     })
   }
 
