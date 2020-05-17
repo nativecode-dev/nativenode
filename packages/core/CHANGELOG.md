@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core@1.0.0...@nnode/core@2.0.0) (2020-05-17)
+
+
+### Bug Fixes
+
+* **build:** build ([995f5c2](https://github.com/nativecode-dev/sosus/commit/995f5c23ffcc9b10bd5a7f73448ebb7fa8d56677))
+
+
+### Features
+
+* **changed configuration:** changed configuration to be more abstract in construction ([0126718](https://github.com/nativecode-dev/sosus/commit/01267186d7c6256627ae20156607d6b5c676e418))
+* **moving scheduling and queuing:** moved scheduling and queuing to core-queue ([ebd91f7](https://github.com/nativecode-dev/sosus/commit/ebd91f74d6ed22f80547b4e5e0f7e3e20cc8cf94))
+
+
+### BREAKING CHANGES
+
+* **moving scheduling and queuing:** moved scheduling and queuing to core-queue
+* **changed configuration:** removed RedisConfig
+
+
+
+
+
 # [1.0.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core@0.2.0...@nnode/core@1.0.0) (2020-05-17)
 
 
