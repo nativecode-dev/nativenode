@@ -1,6 +1,4 @@
-import { CreateLogger, CreateOptions, ScrubsInterceptor } from '@nofrills/scrubs'
+import { createLogger } from '@nnode/lincoln'
 
-const options = CreateOptions('sosus', [], [['scrubs', ScrubsInterceptor]])
-
-export const Logger = CreateLogger(options)
+export const Logger = createLogger('core')
 export const LoggerType = Symbol('Logger')

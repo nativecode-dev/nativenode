@@ -1,7 +1,7 @@
 export * from '@nofrills/fs'
 export * from '@nofrills/env'
-export * from '@nofrills/scrubs'
 export * from '@nofrills/types'
+export * from '@nnode/lincoln'
 export * from 'node-schedule'
 export * from 'tsyringe'
 

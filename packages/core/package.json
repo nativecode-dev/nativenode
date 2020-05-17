@@ -31,9 +31,9 @@
     "upgrade": "npx npm-check -y"
   },
   "dependencies": {
+    "@nnode/lincoln": "^0.2.2-next.2",
     "@nofrills/env": "~11.0.0",
     "@nofrills/fs": "~11.0.0",
-    "@nofrills/scrubs": "~11.0.0",
     "@nofrills/types": "~10.0.2",
     "atob": "~2.1.2",
     "blob-to-buffer": "~1.2.8",

@@ -1,4 +1,4 @@
-import { Lincoln } from '@nofrills/scrubs'
+import { Lincoln } from '@nnode/lincoln'
 import { DependencyContainer, container } from 'tsyringe'
 
 import { LoggerType, Logger } from './Logger'

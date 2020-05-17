@@ -41,7 +41,7 @@ export class Lincoln extends Subject<LincolnEnvelope> {
     return this.write(createMessage(message, LincolnMessageType.debug, attributes))
   }
 
-  error<T extends Error>(error: T, ...attributes: any[]): Lincoln {
+  error<T extends Error>(error: T | any, ...attributes: any[]): Lincoln {
     return this.write(createMessage(error, LincolnMessageType.error, attributes))
   }
 
