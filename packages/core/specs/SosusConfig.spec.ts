@@ -1,7 +1,8 @@
+import { DeepPartial } from 'ts-essentials'
+
 import { expect } from './helpers'
 import { Logger } from '../src/Logger'
 import { Config } from '../src/config/Config'
-import { DeepPartial } from '../src/DeepPartial'
 import { Configuration, DefaultConfig } from '../src/config/Configuration'
 
 interface TestConfig extends Config {
