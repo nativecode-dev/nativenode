@@ -1,7 +1,7 @@
 {
   "name": "@nnode/core-web",
   "version": "1.0.2-next.1",
-  "description": "SOSUS",
+  "description": "NativeCode Web Library",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   "homepage": "https://github.com/nativecode-dev/sosus/tree/master/packages/core-web#readme",
   "author": "opensource@nativecode.com",
   "keywords": [
-    "SOSUS"
+    "web-lib"
   ],
   "main": "lib/index.js",
   "files": [
