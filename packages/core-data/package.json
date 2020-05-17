@@ -1,6 +1,6 @@
 {
   "name": "@nnode/core-data",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "SOSUS",
   "license": "MIT",
   "repository": {
@@ -31,7 +31,7 @@
     "upgrade": "npx npm-check -y"
   },
   "dependencies": {
-    "@nnode/core": "^0.2.0",
+    "@nnode/core": "^1.0.0",
     "pouchdb": "^7.2.1",
     "pouchdb-adapter-memory": "^7.2.1",
     "pouchdb-find": "^7.2.1",
