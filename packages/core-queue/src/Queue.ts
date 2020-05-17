@@ -1,9 +1,9 @@
-import bullmq, { Queue as QueueBase } from 'bullmq'
+import bullmq from 'bullmq'
 
 import { Lincoln } from '@nnode/lincoln'
 
 import { QueueJob } from './QueueJob'
-import { RedisConfig } from './config/RedisConfig'
+import { QueueConfig } from './QueueConfig'
 
 export class Queue<T = any, R = any> {
   readonly name: string
@@ -11,13 +11,12 @@ export class Queue<T = any, R = any> {
   protected readonly log: Lincoln
   protected readonly queue: bullmq.Queue<T>
 
-  constructor(name: string, redis: RedisConfig, logger: Lincoln) {
+  constructor(name: string, options: QueueConfig, logger: Lincoln) {
     this.log = logger.extend(name)
     this.name = name
 
-    const options = { connection: redis }
     this.log.trace('queue-options', options)
-    this.queue = new QueueBase(name, options)
+    this.queue = new bullmq.Queue(name, options)
 
     this.log.debug('created', this.name)
   }

@@ -2,7 +2,7 @@ import http from 'http'
 import express from 'express'
 
 import { Lincoln } from '@nnode/lincoln'
-import { Merge, DeepPartial, Logger, Runnable } from '@nnode/core'
+import { Merge, DeepPartial, Runnable } from '@nnode/core'
 
 import { ServerConfig } from './ServerConfig'
 
@@ -18,7 +18,7 @@ export abstract class Server<T extends ServerConfig> implements Runnable {
 
   constructor(name: string, app: express.Express, logger: Lincoln, config: DeepPartial<T>) {
     this.name = name
-    this.log = Logger.extend(name)
+    this.log = logger.extend(name)
     this.config = Merge<T>([config])
     this.http = http.createServer(app)
 
@@ -49,7 +49,7 @@ export abstract class Server<T extends ServerConfig> implements Runnable {
   start(): Promise<void> {
     return new Promise((resolve) => {
       this.http.listen(this.config.port, () => resolve())
-      console.log(`listening ${this.config.machine}:${this.config.port}`)
+      console.log(`listening ${this.config.host}:${this.config.port}`)
     })
   }
 
