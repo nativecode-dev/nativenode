@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/nativecode-dev/sosus/compare/@nnode/core-data@1.2.1...@nnode/core-data@1.2.2) (2020-05-17)
+
+
+### Bug Fixes
+
+* **build:** build ([995f5c2](https://github.com/nativecode-dev/sosus/commit/995f5c23ffcc9b10bd5a7f73448ebb7fa8d56677))
+
+
+
+
+
 ## [1.2.1](https://github.com/nativecode-dev/sosus/compare/@nnode/core-data@1.2.0...@nnode/core-data@1.2.1) (2020-05-17)
 
 **Note:** Version bump only for package @nnode/core-data
