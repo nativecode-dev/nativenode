@@ -11,29 +11,7 @@ import { Merge } from '../utils/Merge'
 export const ConfigType = Symbol('Config')
 
 export const DefaultConfig: DeepPartial<Config> = {
-  machine: os.hostname(),
-  port: getDefaultPort(),
-  root: getDefaultRoot(),
-}
-
-function getDefaultPort(): number {
-  if (process.env.SOSUS_API_PORT) {
-    return parseInt(process.env.SOSUS_API_PORT, 0)
-  }
-
-  return Math.floor(Math.random() * 100) + 10000
-}
-
-function getDefaultRoot(): string {
-  if (process.env.SOSUS_ROOT) {
-    return process.env.SOSUS_ROOT
-  }
-
-  if (process.env.HOME) {
-    return fs.join(process.env.HOME, '.config', 'sosus')
-  }
-
-  return fs.join(process.cwd(), '.sosus')
+  appname: 'sample',
 }
 
 export class Configuration<T extends Config> {
@@ -41,16 +19,18 @@ export class Configuration<T extends Config> {
 
   private readonly env: DeepPartial<T>
   private readonly filepath: string
+  private readonly rootpath: string
   private readonly log: Lincoln
 
   constructor(filename: string, config: DeepPartial<T>, logger: Lincoln) {
     this.log = logger.extend(filename)
 
-    const options = { env: process.env, casing: EnvCaseOptions.LowerCase, prefix: 'sosus' }
+    const options = { env: process.env, casing: EnvCaseOptions.LowerCase, prefix: config.appname }
     this.env = Env.from(options).toObject()
 
     this.config = Merge<T>([config, this.env])
-    this.filepath = fs.join(this.config.root, filename)
+    this.rootpath = fs.join(os.homedir(), '.config', this.config.appname)
+    this.filepath = fs.join(this.rootpath, filename)
   }
 
   get filename(): string {
@@ -82,8 +62,8 @@ export class Configuration<T extends Config> {
 
   async save() {
     try {
-      if ((await fs.exists(this.config.root)) === false) {
-        await fs.mkdirp(this.config.root, true)
+      if ((await fs.exists(this.rootpath)) === false) {
+        await fs.mkdirp(this.rootpath, true)
       }
 
       return fs.writeFile(this.filename, JSON.stringify(this.config, null, 2))
