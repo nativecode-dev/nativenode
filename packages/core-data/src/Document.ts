@@ -15,6 +15,6 @@ export abstract class DocumentBase<T extends Document> implements Document {
 
   constructor(type: symbol, properties?: DeepPartial<T>) {
     this.meta__doctype = type.toString()
-    this.properties = Merge<T>([properties || {}])
+    this.properties = Merge<T>([properties || ({} as DeepPartial<T>)])
   }
 }

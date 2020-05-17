@@ -1,7 +1,8 @@
 import deepmerge from 'deepmerge'
 
+import { DeepPartial } from 'ts-essentials'
+
 import { Dedupe } from './Dedupe'
-import { DeepPartial } from '../DeepPartial'
 
 export function Merge<T>(objects: Array<DeepPartial<T>>): T {
   const partials = objects.map((item) => item as Partial<T>)

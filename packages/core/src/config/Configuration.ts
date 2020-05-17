@@ -2,11 +2,11 @@ import os from 'os'
 
 import { fs } from '@nofrills/fs'
 import { Lincoln } from '@nofrills/scrubs'
+import { DeepPartial } from 'ts-essentials'
 import { Env, EnvCaseOptions } from '@nofrills/env'
 
 import { Config } from './Config'
 import { Merge } from '../utils/Merge'
-import { DeepPartial } from '../DeepPartial'
 
 export const ConfigType = Symbol('Config')
 
@@ -63,7 +63,7 @@ export class Configuration<T extends Config> {
 
   async load() {
     try {
-      const partial = this.config as DeepPartial<unknown>
+      const partial = this.config as DeepPartial<T>
 
       if (await fs.exists(this.filepath)) {
         const json = await fs.json<DeepPartial<T>>(this.filepath)

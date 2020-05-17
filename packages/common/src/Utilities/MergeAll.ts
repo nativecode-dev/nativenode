@@ -1,6 +1,6 @@
 import deepmerge from 'deepmerge'
 
-import { DeepPartial } from './DeepPartial'
+import { DeepPartial } from 'ts-essentials'
 
 const DefaultOptions: Partial<deepmerge.Options> = {
   clone: true,

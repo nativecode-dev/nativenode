@@ -47,6 +47,7 @@
     "promise-parallel-throttle": "~3.3.0",
     "rxjs": "^6.5.5",
     "sha1": "~1.1.1",
+    "ts-essentials": "^6.0.5",
     "tsyringe": "^4.2.0",
     "uuid": "^8.0.0"
   },
