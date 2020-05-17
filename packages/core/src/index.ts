@@ -2,7 +2,10 @@ export * from '@nofrills/fs'
 export * from '@nofrills/env'
 export * from '@nofrills/scrubs'
 export * from '@nofrills/types'
+export * from 'node-schedule'
 export * from 'tsyringe'
+
+export { DeepPartial } from 'ts-essentials'
 
 export * from './config'
 export * from './errors'
@@ -23,5 +26,3 @@ export * from './QueueJob'
 export * from './QueueWorker'
 export * from './Runnable'
 export * from './RxJs'
-
-export { DeepPartial } from 'ts-essentials'
