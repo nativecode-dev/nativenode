@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/nativecode-dev/sosus/compare/@nnode/core@2.0.1-next.1...@nnode/core@2.0.1) (2020-05-17)
+
+**Note:** Version bump only for package @nnode/core
+
+
+
+
+
 # [2.0.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core@1.0.0...@nnode/core@2.0.0) (2020-05-17)
 
 
