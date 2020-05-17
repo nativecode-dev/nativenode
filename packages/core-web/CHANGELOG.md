@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@0.1.1...@nnode/core-web@0.1.2) (2020-05-17)
+
+
+### Bug Fixes
+
+* **upgrade packages:** upgrade packages ([bedac18](https://github.com/nativecode-dev/sosus/commit/bedac18546deab1845617f8c96e85fe2802f7d5a))
+
+
+
+
+
 ## [0.1.1](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@0.1.1-next.1...@nnode/core-web@0.1.1) (2020-05-17)
 
 **Note:** Version bump only for package @nnode/core-web
