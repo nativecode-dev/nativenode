@@ -5,8 +5,10 @@ export * from '@nofrills/types'
 export * from 'node-schedule'
 export * from 'tsyringe'
 
-export * as atob from 'atob'
-export * as btoa from 'btoa'
+import atob from 'atob'
+import btoa from 'btoa'
+
+export { atob, btoa }
 
 export { DeepPartial } from 'ts-essentials'
 
