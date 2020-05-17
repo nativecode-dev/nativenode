@@ -24,7 +24,7 @@
   "types": "./lib/index.d.ts",
   "dependencies": {
     "@nnode/common": "^0.4.2",
-    "@nnode/lincoln": "^0.2.2",
+    "@nnode/lincoln": "^0.2.3",
     "debug": "~4.1.1"
   },
   "devDependencies": {

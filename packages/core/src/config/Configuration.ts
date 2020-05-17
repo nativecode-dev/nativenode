@@ -1,7 +1,7 @@
 import os from 'os'
 
 import { fs } from '@nofrills/fs'
-import { Lincoln } from '@nofrills/scrubs'
+import { Lincoln } from '@nnode/lincoln'
 import { DeepPartial } from 'ts-essentials'
 import { Env, EnvCaseOptions } from '@nofrills/env'
 

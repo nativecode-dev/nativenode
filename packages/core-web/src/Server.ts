@@ -1,7 +1,8 @@
 import http from 'http'
 import express from 'express'
 
-import { Merge, DeepPartial, Logger, Lincoln, Runnable } from '@nnode/core'
+import { Lincoln } from '@nnode/lincoln'
+import { Merge, DeepPartial, Logger, Runnable } from '@nnode/core'
 
 import { ServerConfig } from './ServerConfig'
 
