@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@0.2.2-next.1...@nnode/core-web@0.2.2) (2020-05-17)
+
+
+### Bug Fixes
+
+* publish ([2ea234a](https://github.com/nativecode-dev/sosus/commit/2ea234ab8e3bb12774f5045edeabead414aedfce))
+
+
+
+
+
 ## [0.2.1](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@0.2.0...@nnode/core-web@0.2.1) (2020-05-17)
 
 **Note:** Version bump only for package @nnode/core-web

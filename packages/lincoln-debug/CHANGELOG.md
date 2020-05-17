@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.6](https://github.com/nativecode-dev/nativenode/compare/@nnode/lincoln-debug@0.1.6-next.1...@nnode/lincoln-debug@0.1.6) (2020-05-17)
+
+
+### Bug Fixes
+
+* publish ([2ea234a](https://github.com/nativecode-dev/nativenode/commit/2ea234ab8e3bb12774f5045edeabead414aedfce))
+
+
+
+
+
 ## [0.1.5](https://github.com/nativecode-dev/nativenode/compare/@nnode/lincoln-debug@0.1.4...@nnode/lincoln-debug@0.1.5) (2020-05-17)
 
 **Note:** Version bump only for package @nnode/lincoln-debug

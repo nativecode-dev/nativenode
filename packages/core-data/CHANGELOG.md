@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/nativecode-dev/sosus/compare/@nnode/core-data@1.1.2-next.1...@nnode/core-data@1.1.2) (2020-05-17)
+
+
+### Bug Fixes
+
+* publish ([2ea234a](https://github.com/nativecode-dev/sosus/commit/2ea234ab8e3bb12774f5045edeabead414aedfce))
+
+
+
+
+
 ## [1.1.1](https://github.com/nativecode-dev/sosus/compare/@nnode/core-data@1.1.0...@nnode/core-data@1.1.1) (2020-05-17)
 
 

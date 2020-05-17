@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2](https://github.com/nativecode-dev/nativenode/compare/@nnode/common@0.4.2-next.1...@nnode/common@0.4.2) (2020-05-17)
+
+
+### Bug Fixes
+
+* publish ([2ea234a](https://github.com/nativecode-dev/nativenode/commit/2ea234ab8e3bb12774f5045edeabead414aedfce))
+
+
+
+
+
 ## [0.4.1](https://github.com/nativecode-dev/nativenode/compare/@nnode/common@0.4.0...@nnode/common@0.4.1) (2020-05-17)
 
 
