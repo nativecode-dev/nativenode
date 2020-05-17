@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core@0.1.2...@nnode/core@0.2.0) (2020-05-17)
+
+
+### Bug Fixes
+
+* lincoln ([d4d4f11](https://github.com/nativecode-dev/sosus/commit/d4d4f115e0345592b52d1c171d2b41fc90567c4a))
+
+
+### Features
+
+* **removed LincolnLogConsole and LincolnLogFile:** removed unused classesaffects: @nnode/core-web, @nnode/core, @nnode/lincoln ([5381e94](https://github.com/nativecode-dev/sosus/commit/5381e946ebd99831c49ff0e0a13d8053b9f16098))
+
+
+
+
+
 ## [0.1.2](https://github.com/nativecode-dev/sosus/compare/@nnode/core@0.1.2-next.1...@nnode/core@0.1.2) (2020-05-17)
 
 

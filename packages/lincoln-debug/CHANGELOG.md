@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/nativecode-dev/nativenode/compare/@nnode/lincoln-debug@0.1.6...@nnode/lincoln-debug@0.2.0) (2020-05-17)
+
+
+### Features
+
+* **removed LincolnLogConsole and LincolnLogFile:** removed unused classesaffects: @nnode/core-web, @nnode/core, @nnode/lincoln ([5381e94](https://github.com/nativecode-dev/nativenode/commit/5381e946ebd99831c49ff0e0a13d8053b9f16098))
+
+
+
+
+
 ## [0.1.6](https://github.com/nativecode-dev/nativenode/compare/@nnode/lincoln-debug@0.1.6-next.1...@nnode/lincoln-debug@0.1.6) (2020-05-17)
 
 
