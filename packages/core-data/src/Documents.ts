@@ -17,7 +17,7 @@ export abstract class Documents<T extends Document> {
 
   constructor(public readonly type: string, private readonly store: BaseDocumentStore<T>) {}
 
-  async all(selector?: PouchDB.Find.FindRequest<T>): Promise<T[]> {
+  async all(selector?: PouchDB.Find.FindRequest<T>): Promise<Array<T>> {
     const required: PouchDB.Find.FindRequest<T> = {
       selector: {
         meta__doctype: this.type,
