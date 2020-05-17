@@ -1,8 +1,10 @@
-import { CreateDocumentKey, Logger, Merge, DeepPartial } from '@nnode/core'
+import { Logger, Merge, DeepPartial } from '@nnode/core'
 
 import { Document } from './Document'
 import { BaseDocumentStore } from './DocumentStore'
 import { CouchConfig } from './config/CouchConfig'
+
+export type Meta = PouchDB.Core.IdMeta & PouchDB.Core.RevisionIdMeta
 
 export interface PropertyNames<T extends Document> {
   (document: T): string[]
@@ -49,9 +51,7 @@ export abstract class Documents<T extends Document> {
 
   createDocument(document: DeepPartial<T>): T {
     const defaults = this.empty()
-    const request = Merge<any>([defaults, document])
-    const id = this.keyId(request)
-    return Merge<T>([request, { _id: id } as T])
+    return Merge<T>([defaults, document])
   }
 
   async delete(id: string, rev: string): Promise<PouchDB.Core.Response> {
@@ -69,9 +69,7 @@ export abstract class Documents<T extends Document> {
     return this.store.exists(id, { meta__doctype: this.type })
   }
 
-  async find(
-    selector: PouchDB.Find.FindRequest<T>,
-  ): Promise<Array<T & PouchDB.Core.IdMeta & PouchDB.Core.RevisionIdMeta>> {
+  async find(selector: PouchDB.Find.FindRequest<T>): Promise<Array<T & Meta>> {
     const defaults: PouchDB.Find.FindRequest<T> = { selector: { meta__doctype: this.type } }
     const query = Merge<PouchDB.Find.FindRequest<T>>([defaults, selector])
     this.log.debug('find', query)
@@ -101,10 +99,6 @@ export abstract class Documents<T extends Document> {
     }
   }
 
-  keyId(doc: T | DeepPartial<T>): string {
-    return this.createKey(doc, ...this.keyProperties)
-  }
-
   async keys(): Promise<string[]> {
     const keys = await this.all()
     return keys.map((key) => key._id)
@@ -124,10 +118,10 @@ export abstract class Documents<T extends Document> {
       .on('error', (error) => this.log.error(error))
   }
 
-  async update(updates: T): Promise<T & PouchDB.Core.IdMeta & PouchDB.Core.RevisionIdMeta> {
+  async update(updates: DeepPartial<T | (T & Meta)>): Promise<T & Meta> {
     const defaults = this.empty()
-    const request = Merge<any>([defaults, updates])
-    const id = this.keyId(request)
+    const request = Merge<T>([defaults, updates])
+    const id = request._id
 
     const response = await this.store.upsert<T>(id, (original) => {
       const merged = Merge<any>([original, request])
@@ -137,11 +131,6 @@ export abstract class Documents<T extends Document> {
 
     this.log.trace('upsert', updates, response)
     return this.store.get(response.id)
-  }
-
-  protected createKey(document: any, ...properties: string[]): string {
-    const merged = Merge<any>([this.empty(), document])
-    return CreateDocumentKey(merged, ['meta__doctype'].concat(properties))
   }
 
   protected empty(): DeepPartial<T> {
