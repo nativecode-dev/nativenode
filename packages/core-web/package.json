@@ -1,6 +1,6 @@
 {
   "name": "@nnode/core-web",
-  "version": "0.1.0",
+  "version": "0.1.1-next.0",
   "description": "SOSUS",
   "license": "MIT",
   "repository": {
@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@nnode/core": "^0.1.0",
-    "@nnode/core-data": "^0.1.0",
+    "@nnode/core-data": "^1.0.0-next.0",
     "express": "~4.17.1"
   },
   "devDependencies": {
