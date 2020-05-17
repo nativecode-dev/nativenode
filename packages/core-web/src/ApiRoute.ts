@@ -1,5 +1,6 @@
 import { Express } from 'express'
-import { Merge, Lincoln, Logger } from '@nnode/core'
+import { Lincoln } from '@nnode/lincoln'
+import { Merge, Logger } from '@nnode/core'
 import { Documents, Document } from '@nnode/core-data'
 
 import { Route } from './Route'

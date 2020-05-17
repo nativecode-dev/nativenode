@@ -1,4 +1,4 @@
-import { Lincoln } from '@nnode/core'
+import { Lincoln } from '@nnode/lincoln'
 import { Request, Response, NextFunction, RequestHandler } from 'express'
 
 export function LoggerMiddleware(logger: Lincoln): RequestHandler {

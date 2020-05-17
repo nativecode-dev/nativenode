@@ -1,6 +1,6 @@
 import bullmq, { Queue as QueueBase } from 'bullmq'
 
-import { Lincoln } from '@nofrills/scrubs'
+import { Lincoln } from '@nnode/lincoln'
 
 import { QueueJob } from './QueueJob'
 import { RedisConfig } from './config/RedisConfig'
