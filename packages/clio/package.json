@@ -1,6 +1,6 @@
 {
   "name": "@nnode/clio",
-  "version": "1.1.4",
+  "version": "1.1.5-next.0",
   "description": "Provides common CLI output methods",
   "license": "MIT",
   "private": false,
@@ -23,7 +23,7 @@
   },
   "types": "./lib/index.d.ts",
   "dependencies": {
-    "@nnode/common": "^0.5.4",
+    "@nnode/common": "^0.5.5-next.0",
     "memory-streams": "^0.1.3"
   }
 }
