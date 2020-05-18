@@ -1,6 +1,6 @@
 {
   "name": "@nnode/core-queue",
-  "version": "1.0.5-next.1",
+  "version": "1.0.5",
   "description": "NativeCode Queue Library",
   "license": "MIT",
   "repository": {
