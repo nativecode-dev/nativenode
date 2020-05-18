@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/nativecode-dev/nativenode/compare/@nnode/lincoln@0.3.4-next.0...@nnode/lincoln@0.4.0) (2020-05-18)
+
+
+### Features
+
+* adding LoggerType for DI ([a2df29b](https://github.com/nativecode-dev/nativenode/commit/a2df29b3325728844f4261f77437a304195c19b3))
+
+
+
+
+
 ## [0.3.3](https://github.com/nativecode-dev/nativenode/compare/@nnode/lincoln@0.3.3-next.0...@nnode/lincoln@0.3.3) (2020-05-17)
 
 **Note:** Version bump only for package @nnode/lincoln
