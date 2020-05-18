@@ -1,6 +1,6 @@
 {
   "name": "@nnode/core-data",
-  "version": "1.2.6-next.1",
+  "version": "1.2.6",
   "description": "NativeCode Data Library",
   "license": "MIT",
   "repository": {
@@ -31,7 +31,7 @@
     "upgrade": "npx npm-check -y"
   },
   "dependencies": {
-    "@nnode/core": "^3.0.2-next.1",
+    "@nnode/core": "^3.0.2",
     "pouchdb": "^7.2.1",
     "pouchdb-adapter-memory": "^7.2.1",
     "pouchdb-find": "^7.2.1",

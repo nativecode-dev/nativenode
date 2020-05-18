@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/nativecode-dev/nativenode/compare/@nnode/lincoln@0.4.1-next.0...@nnode/lincoln@0.4.1) (2020-05-18)
+
+
+### Bug Fixes
+
+* export LoggerType ([9fd3ac7](https://github.com/nativecode-dev/nativenode/commit/9fd3ac75145b0e62f5c870e6ec5e3e88ef7c2c0b))
+
+
+
+
+
 # [0.4.0](https://github.com/nativecode-dev/nativenode/compare/@nnode/lincoln@0.3.4-next.0...@nnode/lincoln@0.4.0) (2020-05-18)
 
 
