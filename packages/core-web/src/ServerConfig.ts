@@ -1,6 +1,6 @@
-import { Config } from '@nnode/core'
+import { AppConfig } from '@nnode/core'
 
-export interface ServerConfig extends Config {
+export interface ServerConfig extends AppConfig {
   enableSessions: boolean
   enableWebSockets: boolean
   host: string

@@ -1,11 +1,11 @@
 import { DeepPartial } from 'ts-essentials'
-
-import { expect } from './helpers'
-import { Config } from '../src/config/Config'
-import { Configuration, DefaultConfig } from '../src/config/Configuration'
 import { createLogger } from '@nnode/lincoln'
 
-interface TestConfig extends Config {
+import { expect } from './helpers'
+import { AppConfig } from '../src/config/AppConfig'
+import { Configuration, DefaultConfig } from '../src/config/Configuration'
+
+interface TestConfig extends AppConfig {
   array: string[]
   name: string
 }

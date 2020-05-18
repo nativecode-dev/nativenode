@@ -1,3 +1,1 @@
-export interface Config {
-  appname: string
-}
+export interface Config {}

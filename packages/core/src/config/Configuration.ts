@@ -5,16 +5,16 @@ import { Lincoln } from '@nnode/lincoln'
 import { DeepPartial } from 'ts-essentials'
 import { Env, EnvCaseOptions } from '@nofrills/env'
 
-import { Config } from './Config'
+import { AppConfig } from './AppConfig'
 import { Merge } from '../utils/Merge'
 
 export const ConfigType = Symbol('Config')
 
-export const DefaultConfig: DeepPartial<Config> = {
-  appname: 'sample',
+export const DefaultConfig: DeepPartial<AppConfig> = {
+  appname: 'core',
 }
 
-export class Configuration<T extends Config> {
+export class Configuration<T extends AppConfig> {
   private config: T
 
   private readonly env: DeepPartial<T>

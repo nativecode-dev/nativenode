@@ -1,10 +1,10 @@
 import { Lincoln, createLogger } from '@nnode/lincoln'
 import { DependencyContainer, container } from 'tsyringe'
 
-import { Config, Configuration } from './config'
+import { Configuration, AppConfig } from './config'
 import { Runnable, RunnableConstructor } from './Runnable'
 
-export abstract class Application<TConfig extends Config> {
+export abstract class Application<TConfig extends AppConfig> {
   protected readonly container: DependencyContainer
 
   constructor(
