@@ -16,10 +16,7 @@ export abstract class Application<TConfig extends AppConfig> {
   }
 
   async run() {
-    const config = await this.setup()
-    const app = await this.build()
-
-    console.log(config)
+    await this.setup()
 
     process.on('SIGTERM', () => process.exit())
     process.on('SIGHUP', () => process.exit())
@@ -27,6 +24,8 @@ export abstract class Application<TConfig extends AppConfig> {
     process.on('SIGUSR2', () => process.exit())
     process.on('uncaughtException', async (error) => console.error(error))
     process.on('unhandledRejection', async (error) => console.error(error))
+
+    const app = await this.build()
 
     await app.initialize()
     await this.configuration.save()
@@ -40,11 +39,8 @@ export abstract class Application<TConfig extends AppConfig> {
 
   protected async setup(): Promise<TConfig> {
     const config = await this.configuration.load()
-
     this.container.register<Lincoln>(Symbol('logger'), { useValue: createLogger(this.name) })
-
     this.dependencies(this.container, config)
-
     return config
   }
 
