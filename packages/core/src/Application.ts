@@ -25,12 +25,12 @@ export abstract class Application<TConfig extends AppConfig> {
     process.on('uncaughtException', async (error) => console.error(error))
     process.on('unhandledRejection', async (error) => console.error(error))
 
-    const app = await this.build()
+    const runnable = await this.build()
 
-    await app.initialize()
+    await runnable.initialize()
     await this.configuration.save()
 
-    return app.start()
+    return runnable.start()
   }
 
   protected async build(): Promise<Runnable> {

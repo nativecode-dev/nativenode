@@ -39,13 +39,16 @@ export abstract class ApiRoute extends Route {
           filter.selector = Merge<PouchDB.Find.Selector>([filter.selector, json])
         }
       } catch (error) {
+        console.error(error)
         return res.status(400).send('invalid query')
       }
 
       try {
         const movies = await context.all(filter)
         res.json(createResponseCollection(movies, pagemodel))
-      } catch (error) {}
+      } catch (error) {
+        console.error(error)
+      }
     })
   }
 
