@@ -1,6 +1,6 @@
 {
   "name": "@nnode/lincoln-debug",
-  "version": "0.2.7-next.0",
+  "version": "0.2.7-next.1",
   "description": "Provides a slim abstraction for logging.",
   "license": "MIT",
   "private": false,
@@ -24,7 +24,7 @@
   "types": "./lib/index.d.ts",
   "dependencies": {
     "@nnode/common": "^0.5.7-next.0",
-    "@nnode/lincoln": "^0.4.3-next.0",
+    "@nnode/lincoln": "^0.4.3-next.1",
     "debug": "~4.1.1"
   },
   "devDependencies": {

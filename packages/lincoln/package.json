@@ -1,6 +1,6 @@
 {
   "name": "@nnode/lincoln",
-  "version": "0.4.3-next.0",
+  "version": "0.4.3-next.1",
   "description": "Provides a slim abstraction for logging.",
   "license": "MIT",
   "private": false,
