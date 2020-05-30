@@ -2,11 +2,11 @@ import debug from 'debug'
 
 import { LincolnLog, LincolnEnvelope, LincolnMessageType } from '@nnode/lincoln'
 
-interface DebugCache {
+interface DebugLogger {
   [key: string]: debug.IDebugger
 }
 
-const Cache: DebugCache = {}
+const DEBUG_LOGGERS: DebugLogger = {}
 
 export class LincolnLogDebug extends LincolnLog {
   protected initialize(): Promise<void> {
@@ -15,7 +15,7 @@ export class LincolnLogDebug extends LincolnLog {
 
   protected render(envelope: LincolnEnvelope): Promise<void> {
     const scope = `${envelope.scope}:${this.messageTypeString(envelope.message.type)}`
-    const logger: debug.IDebugger = Cache[scope] ? Cache[scope] : (Cache[scope] = debug(scope))
+    const logger: debug.IDebugger = DEBUG_LOGGERS[scope] ? DEBUG_LOGGERS[scope] : (DEBUG_LOGGERS[scope] = debug(scope))
 
     const messageHasString = typeof envelope.message.body === 'string'
     const messageHasParams = envelope.message.parameters.length > 0
