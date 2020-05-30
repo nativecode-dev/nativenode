@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.3](https://github.com/nativecode-dev/nativenode/compare/@nnode/lincoln@0.4.3-next.1...@nnode/lincoln@0.4.3) (2020-05-30)
+
+**Note:** Version bump only for package @nnode/lincoln
+
+
+
+
+
 ## [0.4.2](https://github.com/nativecode-dev/nativenode/compare/@nnode/lincoln@0.4.2-next.0...@nnode/lincoln@0.4.2) (2020-05-18)
 
 **Note:** Version bump only for package @nnode/lincoln
