@@ -47,6 +47,21 @@ describe('when using ObjectMap', () => {
     expect(mapper.root.properties.map((objmap) => objmap.name)).is.deep.equal(['logins', 'user'])
   })
 
+  it('should exclude arrays', () => {
+    const mapper = new ObjectMap(TEST_OBJECT, { include: { arrays: false } })
+    expect(mapper.root.properties.map((objmap) => objmap.name)).is.deep.equal(['user'])
+  })
+
+  it('should exclude objects', () => {
+    const mapper = new ObjectMap(TEST_OBJECT, { include: { objects: false } })
+    expect(mapper.root.properties.map((objmap) => objmap.name)).is.deep.equal(['logins'])
+  })
+
+  it('should include functions', () => {
+    const mapper = new ObjectMap(TEST_OBJECT, { include: { functions: true } })
+    expect(mapper.root.properties.map((objmap) => objmap.name)).is.deep.equal(['logins', 'user', 'logout'])
+  })
+
   it('should get leaf nodes', () => {
     const mapper = new ObjectMap(TEST_OBJECT)
     expect(mapper.nodes).to.not.be.empty
