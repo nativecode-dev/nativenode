@@ -43,7 +43,7 @@ export class ObjectMap {
     return this.objmap
   }
 
-  get(path: string = '.'): ObjectMapValue {
+  get(path: string = ''): ObjectMapValue {
     if (path === '' || path === '.') {
       return this.root
     }
@@ -55,8 +55,35 @@ export class ObjectMap {
     return this.get(path).value
   }
 
+  materialze(): any {
+    const conjure = (objmap: ObjectMapValue, target: any): any => {
+      if (this.include(objmap.type) === false) {
+        return target
+      }
+
+      return objmap.properties
+        .filter((property) => this.include(property.type))
+        .reduce<any>((result, property) => {
+          if (objmap.type === 'array') {
+            const value = result[property.name] || []
+            result[property.name] = value.push(property.value)
+          } else if (property.type === 'object') {
+            result[property.name] = conjure(property, {})
+          } else {
+            result[property.name] = property.value
+          }
+
+          return result
+        }, target)
+    }
+
+    const material = {}
+    conjure(this.root, material)
+    return material
+  }
+
   paths(): string[] {
-    return this.select((objmap) => objmap.properties.length > 0).map((objmap) => objmap.path.join('.'))
+    return this.select().map((objmap) => this.pathstr(objmap))
   }
 
   select(filter: ObjectMapValueFilter | undefined = () => true): ObjectMapValue[] {
@@ -134,6 +161,10 @@ export class ObjectMap {
 
   private node(objmap: ObjectMapValue, property: string): ObjectMapValue {
     return objmap.properties.reduce((result, current) => (current.name === property ? current : result), objmap)
+  }
+
+  private pathstr(objmap: ObjectMapValue): string {
+    return objmap.path.join('.')
   }
 
   private type(value: any): string {

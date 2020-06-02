@@ -9,11 +9,11 @@ describe('when using ObjectMap', () => {
     logins: [
       {
         login: 'mpham',
-        password: 'password',
+        password: 'passwordsexlove',
       },
       {
         login: 'mike.pham',
-        password: 'password',
+        password: 'passwordsexlove',
       },
     ],
     user: {
@@ -30,8 +30,9 @@ describe('when using ObjectMap', () => {
         },
       },
     },
-    logout: () => {},
   }
+
+  const TEST_OBJECT_FUNCTION: any = { ...TEST_OBJECT, logout: () => {} }
 
   it('should map empty object', () => {
     expect(() => new ObjectMap({})).to.not.throw(Error)
@@ -62,7 +63,7 @@ describe('when using ObjectMap', () => {
   })
 
   it('should include functions', () => {
-    const mapper = new ObjectMap(TEST_OBJECT, { include: { functions: true } })
+    const mapper = new ObjectMap(TEST_OBJECT_FUNCTION, { include: { functions: true } })
     expect(mapper.root.properties.map((objmap) => objmap.name)).is.deep.equal(['logins', 'user', 'logout'])
   })
 
@@ -114,5 +115,11 @@ describe('when using ObjectMap', () => {
 
   it('should not map undefined', () => {
     expect(() => new ObjectMap(undefined)).throws(TypeError)
+  })
+
+  it('should materialize object', () => {
+    const mapper = new ObjectMap(TEST_OBJECT)
+    const materialized = mapper.materialze()
+    expect(materialized).to.deep.equal(TEST_OBJECT)
   })
 })
