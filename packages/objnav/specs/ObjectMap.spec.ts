@@ -52,14 +52,38 @@ describe('when using ObjectMap', () => {
     expect(mapper.root.properties.map((objmap) => objmap.name)).is.deep.equal(['user'])
   })
 
-  it('should exclude objects', () => {
-    const mapper = new ObjectMap(TEST_OBJECT, { include: { objects: false } })
-    expect(mapper.root.properties.map((objmap) => objmap.name)).is.deep.equal(['logins'])
+  it('should exclude dates', () => {
+    const mapper = new ObjectMap(TEST_OBJECT, { include: { dates: false } })
+    expect(mapper.get('user').properties.map((objmap) => objmap.name)).is.deep.equal([
+      'firstname',
+      'lastname',
+      'address',
+    ])
   })
 
   it('should include functions', () => {
     const mapper = new ObjectMap(TEST_OBJECT, { include: { functions: true } })
     expect(mapper.root.properties.map((objmap) => objmap.name)).is.deep.equal(['logins', 'user', 'logout'])
+  })
+
+  it('should exclude numbers', () => {
+    const mapper = new ObjectMap(TEST_OBJECT, { include: { numbers: false } })
+    expect(mapper.get('user').properties.map((objmap) => objmap.name)).is.deep.equal([
+      'created',
+      'firstname',
+      'lastname',
+      'address',
+    ])
+  })
+
+  it('should exclude strings', () => {
+    const mapper = new ObjectMap(TEST_OBJECT, { include: { strings: false } })
+    expect(mapper.get('user').properties.map((objmap) => objmap.name)).is.deep.equal(['created', 'address'])
+  })
+
+  it('should exclude objects', () => {
+    const mapper = new ObjectMap(TEST_OBJECT, { include: { objects: false } })
+    expect(mapper.root.properties.map((objmap) => objmap.name)).is.deep.equal(['logins'])
   })
 
   it('should get leaf nodes', () => {

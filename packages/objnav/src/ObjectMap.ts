@@ -112,23 +112,30 @@ export class ObjectMap {
 
   private map(objmap: ObjectMapValue, name: string): ObjectMapValue {
     const value = objmap.value[name]
+    const type = this.type(value)
+    const included = this.include(type)
 
     const objvalue: ObjectMapValue = {
       name,
       path: objmap.path.concat([name]),
       properties: [],
-      type: this.type(value),
+      type,
       value,
     }
 
-    if (objvalue.type === 'object' || objvalue.type === 'array') {
-      objvalue.properties = Object.keys(objvalue.value).reduce<ObjectMapValue[]>(
-        (results, property) => [...results, this.map(objvalue, property)],
-        [],
-      )
+    if (included && (objvalue.type === 'object' || objvalue.type === 'array')) {
+      objvalue.properties = Object.keys(objvalue.value).reduce<ObjectMapValue[]>((results, property) => {
+        const map = this.map(objvalue, property)
+
+        if (this.include(map.type)) {
+          return [...results, map]
+        }
+
+        return results
+      }, [])
     }
 
-    if (this.include(objvalue.type)) {
+    if (included) {
       objmap.properties.push(objvalue)
     }
 
