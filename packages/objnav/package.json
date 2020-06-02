@@ -23,6 +23,7 @@
   },
   "types": "./lib/index.d.ts",
   "dependencies": {
-    "@nnode/common": "^0.5.7"
+    "@nnode/common": "^0.5.7",
+    "yaml": "^1.10.0"
   }
 }

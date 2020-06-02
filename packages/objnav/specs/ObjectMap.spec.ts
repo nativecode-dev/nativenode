@@ -124,7 +124,29 @@ describe('when using ObjectMap', () => {
 
   it('should materialize object', () => {
     const mapper = new ObjectMap(TEST_OBJECT)
-    const materialized = mapper.materialze()
-    expect(materialized).to.deep.equal(TEST_OBJECT)
+    expect(mapper.toObject()).to.deep.equal(TEST_OBJECT)
+  })
+
+  it('should parse yaml', () => {
+    const TEST_YAML = `
+  logins:
+    - login: mpham
+      password: passwordsexlove
+    - login: mike.pham
+      password: passwordsexlove
+  user:
+    firstname: mike
+    lastname: pham
+    address:
+      address1: 4617 Some Dream Boulevard
+      address2: Suite 101
+      city: Middleton
+      state: Florida
+      zip:
+        postal: 34243
+`
+    const mapper = ObjectMap.fromYaml(TEST_YAML)
+    const source = new ObjectMap(TEST_OBJECT, { include: { dates: false } })
+    expect(mapper.toObject()).to.deep.equal(source.toObject())
   })
 })

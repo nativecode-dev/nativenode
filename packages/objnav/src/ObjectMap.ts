@@ -1,3 +1,5 @@
+import YAML from 'yaml'
+
 import { types } from 'util'
 import { DeepPartial, Merge } from '@nnode/common'
 
@@ -35,8 +37,22 @@ export class ObjectMap {
     Object.keys(instance).forEach((name) => this.map(this.objmap, name))
   }
 
+  static fromJson<T extends any>(source: T): ObjectMap {
+    return new ObjectMap(source, { include: { functions: false } })
+  }
+
+  static fromJsonString<T extends any>(json: string): ObjectMap {
+    const source: T = JSON.parse(json)
+    return ObjectMap.fromJson(source)
+  }
+
+  static fromYaml<T extends any>(yaml: string): ObjectMap {
+    const source: T = YAML.parse(yaml)
+    return new ObjectMap(source, { include: { dates: false } })
+  }
+
   get nodes(): ObjectMapValue[] {
-    return this.select((objmap) => objmap.properties.length === 0)
+    return this.select()
   }
 
   get root(): ObjectMapValue {
@@ -53,33 +69,6 @@ export class ObjectMap {
 
   getValue<T>(path: string): T {
     return this.get(path).value
-  }
-
-  materialze(): any {
-    const conjure = (objmap: ObjectMapValue, target: any): any => {
-      if (this.include(objmap.type) === false) {
-        return target
-      }
-
-      return objmap.properties
-        .filter((property) => this.include(property.type))
-        .reduce<any>((result, property) => {
-          if (objmap.type === 'array') {
-            const value = result[property.name] || []
-            result[property.name] = value.push(property.value)
-          } else if (property.type === 'object') {
-            result[property.name] = conjure(property, {})
-          } else {
-            result[property.name] = property.value
-          }
-
-          return result
-        }, target)
-    }
-
-    const material = {}
-    conjure(this.root, material)
-    return material
   }
 
   paths(): string[] {
@@ -106,6 +95,15 @@ export class ObjectMap {
     const objmap = this.get(path)
     objmap.value = value
     return objmap
+  }
+
+  toObject(): any {
+    return this.materialze()
+  }
+
+  toYaml(): string {
+    const obj = this.toObject()
+    return YAML.stringify(obj)
   }
 
   private include(type: string): boolean {
@@ -157,6 +155,33 @@ export class ObjectMap {
     }
 
     return objvalue
+  }
+
+  private materialze(): any {
+    const conjure = (objmap: ObjectMapValue, target: any): any => {
+      if (this.include(objmap.type) === false) {
+        return target
+      }
+
+      return objmap.properties
+        .filter((property) => this.include(property.type))
+        .reduce<any>((result, property) => {
+          if (objmap.type === 'array') {
+            const value = result[property.name] || []
+            result[property.name] = value.push(property.value)
+          } else if (property.type === 'object') {
+            result[property.name] = conjure(property, {})
+          } else {
+            result[property.name] = property.value
+          }
+
+          return result
+        }, target)
+    }
+
+    const material = {}
+    conjure(this.root, material)
+    return material
   }
 
   private node(objmap: ObjectMapValue, property: string): ObjectMapValue {
