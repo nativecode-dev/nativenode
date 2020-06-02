@@ -1,0 +1,29 @@
+{
+  "name": "@nnode/objnav",
+  "version": "0.0.0",
+  "description": "Provides a slim abstraction for logging.",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nativecode-dev/nativenode"
+  },
+  "bugs": {
+    "url": "https://github.com/nativecode-dev/nativenode/issues"
+  },
+  "homepage": "https://github.com/nativecode-dev/nativenode/tree/master/packages/lincoln",
+  "author": "opensource@nativecode.com",
+  "main": "./lib/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "cli-tasks build",
+    "upgrade": "cli-tasks upgrade"
+  },
+  "types": "./lib/index.d.ts",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
