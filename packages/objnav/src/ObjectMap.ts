@@ -1,13 +1,39 @@
 import { types } from 'util'
+import { Merge } from '@nnode/common'
 
 import { ObjectMapValue } from './ObjectMapValue'
 
 export type ObjectMapValueFilter = (objmap: ObjectMapValue) => boolean
 
+export interface ObjectMapOptions {
+  include: {
+    arrays: boolean
+    dates: boolean
+    functions: boolean
+    numbers: boolean
+    objects: boolean
+    strings: boolean
+  }
+}
+
+const DefaultObjectMapOptions: Partial<ObjectMapOptions> = {
+  include: {
+    arrays: true,
+    dates: true,
+    functions: false,
+    numbers: true,
+    objects: true,
+    strings: true,
+  },
+}
+
 export class ObjectMap {
   private readonly objmap: ObjectMapValue
+  private readonly options: ObjectMapOptions
 
-  constructor(instance: any) {
+  constructor(instance: any, options: Partial<ObjectMapOptions> = {}) {
+    this.options = Merge<ObjectMapOptions>(DefaultObjectMapOptions, options)
+
     this.objmap = {
       name: 'root',
       path: [],
@@ -65,6 +91,25 @@ export class ObjectMap {
     return objmap
   }
 
+  private include(type: string): boolean {
+    switch (type) {
+      case 'array':
+        return this.options.include.arrays
+      case 'date':
+        return this.options.include.dates
+      case 'function':
+        return this.options.include.functions
+      case 'number':
+        return this.options.include.numbers
+      case 'object':
+        return this.options.include.objects
+      case 'string':
+        return this.options.include.strings
+      default:
+        return true
+    }
+  }
+
   private map(objmap: ObjectMapValue, name: string): ObjectMapValue {
     const value = objmap.value[name]
 
@@ -83,7 +128,9 @@ export class ObjectMap {
       )
     }
 
-    objmap.properties.push(objvalue)
+    if (this.include(objvalue.type)) {
+      objmap.properties.push(objvalue)
+    }
 
     return objvalue
   }

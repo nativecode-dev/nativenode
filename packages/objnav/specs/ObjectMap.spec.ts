@@ -30,6 +30,7 @@ describe('when using ObjectMap', () => {
         },
       },
     },
+    logout: () => {},
   }
 
   it('should map empty object', () => {

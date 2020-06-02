@@ -21,5 +21,8 @@
     "build": "cli-tasks build",
     "upgrade": "cli-tasks upgrade"
   },
-  "types": "./lib/index.d.ts"
+  "types": "./lib/index.d.ts",
+  "dependencies": {
+    "@nnode/common": "^0.5.7"
+  }
 }
