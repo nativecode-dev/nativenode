@@ -2,19 +2,9 @@ import { types } from 'util'
 import { DeepPartial, Merge } from '@nnode/common'
 
 import { ObjectMapValue } from './ObjectMapValue'
+import { ObjectMapOptions } from './ObjectMapOptions'
 
 export type ObjectMapValueFilter = (objmap: ObjectMapValue) => boolean
-
-export interface ObjectMapOptions {
-  include: {
-    arrays: boolean
-    dates: boolean
-    functions: boolean
-    numbers: boolean
-    objects: boolean
-    strings: boolean
-  }
-}
 
 const DefaultObjectMapOptions: DeepPartial<ObjectMapOptions> = {
   include: {
