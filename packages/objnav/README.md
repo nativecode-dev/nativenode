@@ -1,3 +1,53 @@
+# objnav
+
+`objnav` is a simple Javascript structure parser that will create node elements for each property value of a hash map.
+
+## Installation
+
+```bash
+npm install --save @nnode/objnav
+```
+
+## Usage
+
+```javascript
+import { ObjectMap } from '@nnode/objnav'
+
+const sample_object = {
+  logins: [
+    {
+      login: 'mpham',
+      password: 'passwordsexlove',
+    },
+    {
+      login: 'mike.pham',
+      password: 'passwordsexlove',
+    },
+  ],
+  user: {
+    created: new Date(),
+    firstname: 'mike',
+    lastname: 'pham',
+    address: {
+      address1: '4617 Some Dream Boulevard',
+      address2: 'Suite 101',
+      city: 'Middleton',
+      state: 'Florida',
+      zip: {
+        postal: 34243,
+      },
+    },
+  },
+}
+
+const mapper = new ObjectMap(sample_object)
+const node = mapper.get('logins.1.created')
+node.value = new Date()
+
+const new_object = node.materialize()
+```
+
+
 # License
 Copyright 2020 NativeCode Development <opensource@nativecode.com>
 

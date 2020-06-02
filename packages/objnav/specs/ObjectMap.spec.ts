@@ -87,6 +87,11 @@ describe('when using ObjectMap', () => {
     expect(mapper.root.properties.map((objmap) => objmap.name)).is.deep.equal(['logins'])
   })
 
+  it('should get array element node', () => {
+    const mapper = new ObjectMap(TEST_OBJECT)
+    expect(mapper.get('logins.1.login').value).to.equal('mike.pham')
+  })
+
   it('should get leaf nodes', () => {
     const mapper = new ObjectMap(TEST_OBJECT)
     expect(mapper.nodes).to.not.be.empty
