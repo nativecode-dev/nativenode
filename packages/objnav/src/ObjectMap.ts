@@ -1,5 +1,5 @@
 import { types } from 'util'
-import { Merge } from '@nnode/common'
+import { DeepPartial, Merge } from '@nnode/common'
 
 import { ObjectMapValue } from './ObjectMapValue'
 
@@ -16,7 +16,7 @@ export interface ObjectMapOptions {
   }
 }
 
-const DefaultObjectMapOptions: Partial<ObjectMapOptions> = {
+const DefaultObjectMapOptions: DeepPartial<ObjectMapOptions> = {
   include: {
     arrays: true,
     dates: true,
@@ -31,7 +31,7 @@ export class ObjectMap {
   private readonly objmap: ObjectMapValue
   private readonly options: ObjectMapOptions
 
-  constructor(instance: any, options: Partial<ObjectMapOptions> = {}) {
+  constructor(instance: any, options: DeepPartial<ObjectMapOptions> = {}) {
     this.options = Merge<ObjectMapOptions>(DefaultObjectMapOptions, options)
 
     this.objmap = {
