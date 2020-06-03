@@ -3,8 +3,9 @@ import { Merge, DeepPartial } from '@nnode/common'
 
 import { ConfigurationOptions } from './ConfigurationOptions'
 
-export const ConfigurationPath: symbol = Symbol('nativenode.common.ConfigurationPath')
-export const ConfigurationName: symbol = Symbol('nativenode.common.ConfigurationName')
+export const ConfigurationKey: symbol = Symbol('nativenode.common.Configuration')
+export const ConfigurationPathKey: symbol = Symbol('nativenode.common.ConfigurationPath')
+export const ConfigurationNameKey: symbol = Symbol('nativenode.common.ConfigurationName')
 
 export class Configuration<T extends ConfigurationOptions> {
   private readonly configpath: string
