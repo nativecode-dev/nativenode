@@ -1,7 +1,7 @@
 {
-  "name": "@nnode/nativenode",
+  "name": "devopscli",
   "version": "0.0.0",
-  "description": "NativeNode CLI",
+  "description": "DevOps CLI",
   "license": "MIT",
   "private": false,
   "repository": {
@@ -38,6 +38,7 @@
   "types": "./bin/index.d.ts",
   "dependencies": {
     "@nnode/common": "^0.5.7",
+    "@nnode/objnav": "^1.0.0",
     "@nofrills/fs": "^11.0.0",
     "reflect-metadata": "^0.1.13",
     "tsyringe": "^4.3.0",

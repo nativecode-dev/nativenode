@@ -1,16 +1,17 @@
 import { fs } from '@nofrills/fs'
-import { injectable } from 'tsyringe'
-import { ObjectNavigator, Configuration } from '@nnode/common'
+import { injectable, inject } from 'tsyringe'
 import { Arguments, CommandBuilder, CommandModule } from 'yargs'
+import { ObjectNavigator, Configuration, ConfigurationKey } from '@nnode/common'
 
-import { ConfigOptions } from '../Options/ConfigOptions'
+import { CommandOptions } from '../Options/CommandOptions'
+import { DEFAULT_CONFIGURATION } from '../Options/ConfigOptions'
 
 @injectable()
-export class ConfigureCommand implements CommandModule<{}, ConfigOptions> {
+export class ConfigureCommand implements CommandModule<{}, CommandOptions> {
   aliases = ['config', 'configure', 'configuration']
   command = 'configure <action> [options..]'
 
-  builder: CommandBuilder<{}, ConfigOptions> = {
+  builder: CommandBuilder<{}, CommandOptions> = {
     action: {
       choices: ['get', 'json', 'set', 'show'],
       default: 'show',
@@ -28,7 +29,9 @@ export class ConfigureCommand implements CommandModule<{}, ConfigOptions> {
     },
   }
 
-  handler = async (args: Arguments<ConfigOptions>) => {
+  constructor(@inject(ConfigurationKey) private readonly configuration: Configuration<CommandOptions>) {}
+
+  handler = async (args: Arguments<CommandOptions>) => {
     const namevalue = (namevalue: string): { name: string; value: string } => {
       const parts = namevalue.split('=')
       const propName = parts[0]
@@ -40,8 +43,7 @@ export class ConfigureCommand implements CommandModule<{}, ConfigOptions> {
       }
     }
 
-    const configuration = new Configuration(args.configuration, '.nativenode.json')
-    const config = await configuration.load()
+    const config = await this.configuration.load(DEFAULT_CONFIGURATION)
 
     const navigator = args.options.reduce<ObjectNavigator>((nav, current) => {
       const { name, value } = namevalue(current)
@@ -62,7 +64,7 @@ export class ConfigureCommand implements CommandModule<{}, ConfigOptions> {
     }, ObjectNavigator.from(config))
 
     if (args.action === 'set') {
-      await configuration.save(navigator.toObject())
+      await this.configuration.save(navigator.toObject())
     }
 
     if (args.action === 'json') {
