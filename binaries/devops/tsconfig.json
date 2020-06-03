@@ -18,6 +18,9 @@
   "references": [
     {
       "path": "../../packages/common"
+    },
+    {
+      "path": "../../packages/objnav"
     }
   ]
 }

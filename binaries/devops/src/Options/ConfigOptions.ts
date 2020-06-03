@@ -18,5 +18,16 @@ export interface ConfigOptions extends ConfigurationOptions {
 }
 
 export const DEFAULT_CONFIGURATION: DeepPartial<ConfigOptions> = {
-  connections: []
+  connections: [
+    {
+      authentication: {
+        login: 'admin',
+        password: '',
+      },
+      host: 'localhost',
+      name: 'couchdb',
+      options: {},
+      port: 1,
+    },
+  ],
 }

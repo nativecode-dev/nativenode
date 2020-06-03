@@ -1,11 +1,12 @@
 import { fs } from '@nofrills/fs'
-import { injectable, inject } from 'tsyringe'
 import { ObjectMap } from '@nnode/objnav'
+import { injectable, inject } from 'tsyringe'
 import { Arguments, CommandBuilder, CommandModule } from 'yargs'
-import { Configuration, ConfigurationKey } from '@nnode/common'
+import { Configuration, ConfigurationKey, Merge } from '@nnode/common'
 
+import { CONSTANT_CONFIG_ENV } from '../index'
 import { CommandOptions } from '../Options/CommandOptions'
-import { DEFAULT_CONFIGURATION } from '../Options/ConfigOptions'
+import { DEFAULT_CONFIGURATION, ConfigOptions } from '../Options/ConfigOptions'
 
 @injectable()
 export class ConfigureCommand implements CommandModule<{}, CommandOptions> {
@@ -44,36 +45,27 @@ export class ConfigureCommand implements CommandModule<{}, CommandOptions> {
       }
     }
 
-    const config = await this.configuration.load(DEFAULT_CONFIGURATION)
+    const config = await this.configuration.load(
+      Merge<ConfigOptions>(DEFAULT_CONFIGURATION, CONSTANT_CONFIG_ENV.toObject()),
+    )
 
-    const navigator = args.options.reduce<ObjectNavigator>((nav, current) => {
-      const { name, value } = namevalue(current)
+    const objmap = ObjectMap.fromJson(config)
 
-      if (args.action === 'get') {
-        console.log(name, nav.getValue(name))
-      }
+    switch (args.action) {
+      case 'json':
+        console.log(objmap.toObject())
+        break
 
-      if (args.action === 'list') {
-        console.log(name, value)
-      }
+      case 'list':
+        objmap
+          .paths()
+          .sort()
+          .map((path) => console.log(path))
+        break
 
-      if (args.action === 'show') {
-        console.log(name, value)
-      }
-
-      if (args.action === 'set') {
-        nav.set(name, value)
-      }
-
-      return nav
-    }, ObjectNavigator.from(config))
-
-    if (args.action === 'set') {
-      await this.configuration.save(navigator.toObject())
-    }
-
-    if (args.action === 'json') {
-      console.log(navigator.toObject())
+      case 'set':
+        this.configuration.save(objmap.toObject())
+        break
     }
   }
 }
