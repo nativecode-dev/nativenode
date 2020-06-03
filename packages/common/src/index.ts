@@ -1,3 +1,4 @@
+export * from './Configuration'
 export * from './Environment'
 export * from './Plugins'
 export * from './Types'
