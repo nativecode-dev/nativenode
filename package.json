@@ -21,6 +21,7 @@
     "setup:git": "cli-tasks setup-git",
     "setup:ssh": "cli-tasks setup-ssh",
     "start": "cli-tasks start",
+    "task": "cli-tasks",
     "test": "cli-tasks test",
     "test:ci": "cli-tasks test:ci",
     "upgrade": "cli-tasks upgrade"
@@ -38,6 +39,7 @@
     "cz-lerna-changelog": "~2.0.2",
     "lerna": "^3.21.0",
     "mocha": "^7.1.2",
+    "mustache": "^4.0.1",
     "nyc": "^15.0.1",
     "prettier": "^2.0.5",
     "reflect-metadata": "^0.1.13",
@@ -49,5 +51,6 @@
     "tslint-config-standard": "~9.0.0",
     "tslint-no-unused-expression-chai": "~0.1.4",
     "typescript": "^3.9.2"
-  }
+  },
+  "year": 2020
 }

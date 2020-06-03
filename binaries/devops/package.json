@@ -31,6 +31,7 @@
   "scripts": {
     "build": "tsc --build tsconfig.json",
     "exec": "ts-node src/index.ts",
+    "templates": "mustache ../../.markdown.json ../../LICENSE.md.mustache > LICENSE.md",
     "upgrade": "npx npm-check -y"
   },
   "engine": {

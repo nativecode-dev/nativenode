@@ -28,6 +28,7 @@
   },
   "scripts": {
     "build": "tsc --project tsconfig.json",
+    "templates": "mustache ../../.markdown.json ../../LICENSE.md.mustache > LICENSE.md",
     "upgrade": "npx npm-check -y"
   },
   "dependencies": {

@@ -19,7 +19,8 @@
     "ci:install": [
       "npm ci",
       "@npm config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}",
-      "lerna bootstrap"
+      "lerna bootstrap",
+      "[templates]"
     ],
     "ci:publish:canary": [
       "[ci:configure]",
@@ -61,7 +62,7 @@
     "references": [
       "ts-node promon/references.ts"
     ],
-      "source": [
+    "source": [
       "[source:format]",
       "[source:lint]"
     ],
@@ -71,6 +72,10 @@
     ],
     "source:lint": [
       "tslint --project tsconfig.json --config tslint.json"
+    ],
+    "templates": [
+      "@mustache .markdown.json README.md.mustache > README.md",
+      "lerna run templates"
     ],
     "test": [
       "[build:compile]",

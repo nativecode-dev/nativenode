@@ -1,0 +1,11 @@
+{
+  "company": {
+    "email": {
+      "contact": "contact@nativecode.com",
+      "sales": "inquiries@nativecode.com",
+      "support": "opensource@nativecode.com"
+    },
+    "title": "NativeCode Development"
+  },
+  "year": 2020
+}

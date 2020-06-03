@@ -19,6 +19,7 @@
   },
   "scripts": {
     "build": "cli-tasks build",
+    "templates": "mustache ../../.markdown.json ../../LICENSE.md.mustache > LICENSE.md",
     "upgrade": "cli-tasks upgrade"
   },
   "types": "./lib/index.d.ts",
