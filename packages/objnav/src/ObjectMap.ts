@@ -93,10 +93,10 @@ export class ObjectMap {
     return apply(this.root, [])
   }
 
-  set<T>(path: string, value: T): ObjectMapValue {
+  set<T>(path: string, value: T): ObjectMap {
     const objmap = this.get(path)
     objmap.value = value
-    return objmap
+    return this
   }
 
   toObject(): any {

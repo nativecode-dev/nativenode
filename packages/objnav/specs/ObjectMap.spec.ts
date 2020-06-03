@@ -127,6 +127,12 @@ describe('when using ObjectMap', () => {
     expect(mapper.toObject()).to.deep.equal(TEST_OBJECT)
   })
 
+  it('should set node value', () => {
+    const mapper = new ObjectMap(TEST_OBJECT)
+    mapper.set('logins.1.password', 'test')
+    expect(mapper.get('logins.1.password').value).to.equal('test')
+  })
+
   it('should parse yaml', () => {
     const TEST_YAML = `
   logins:
