@@ -12,6 +12,7 @@
     "build": "cli-tasks build",
     "build:ci": "cli-tasks build:ci",
     "commit": "cli-tasks commit",
+    "exec:nativenode": "ts-node binaries/nativenode/src/index.ts",
     "lerna": "lerna",
     "prepare": "lerna bootstrap",
     "release": "cli-tasks release",

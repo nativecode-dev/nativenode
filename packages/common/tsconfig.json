@@ -15,5 +15,6 @@
   "extends": "../../tsconfig.settings",
   "include": [
     "src/**/*.ts"
-  ]
+  ],
+  "references": []
 }

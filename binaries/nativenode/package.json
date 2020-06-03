@@ -1,0 +1,51 @@
+{
+  "name": "@nnode/nativenode",
+  "version": "0.0.0",
+  "description": "NativeNode CLI",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nativecode-dev/nativenode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nativecode-dev/nativenode/issues"
+  },
+  "homepage": "https://github.com/nativecode-dev/nativenode",
+  "author": "opensource@nativecode.com",
+  "bin": {
+    "nativenode": "./bin/index.js"
+  },
+  "main": "./src/index.ts",
+  "files": [
+    "bin"
+  ],
+  "directories": {
+    "lib": "bin",
+    "test": "specs"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "ts-node src build",
+    "exec": "ts-node src/index.ts",
+    "upgrade": "npx npm-check -y"
+  },
+  "engine": {
+    "node": ">=8.10.49"
+  },
+  "types": "./bin/index.d.ts",
+  "dependencies": {
+    "@nnode/common": "^0.5.7",
+    "@nofrills/fs": "^11.0.0",
+    "reflect-metadata": "^0.1.13",
+    "tsyringe": "^4.3.0",
+    "yargs": "^15.3.1",
+    "yargs-interactive": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.6",
+    "@types/yargs": "^15.0.5"
+  }
+}

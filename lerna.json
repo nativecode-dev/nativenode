@@ -25,6 +25,7 @@
     "--silent"
   ],
   "packages": [
+    "binaries/*",
     "packages/*"
   ],
   "version": "independent"

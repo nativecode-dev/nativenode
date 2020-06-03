@@ -1,6 +1,7 @@
 {
   "tasks": {
     "build": [
+      "[references]",
       "[clean]",
       "[source]",
       "[build:compile]"
@@ -51,10 +52,16 @@
     "coverage": [
       "nyc report --reporter=text-lcov | coveralls"
     ],
+    "exec": [
+      "lerna run exec"
+    ],
     "install": [
       "npm install"
     ],
-    "source": [
+    "references": [
+      "ts-node promon/references.ts"
+    ],
+      "source": [
       "[source:format]",
       "[source:lint]"
     ],
