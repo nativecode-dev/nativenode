@@ -1,7 +1,8 @@
 import { fs } from '@nofrills/fs'
-import { Merge, DeepPartial } from '@nnode/common'
+import { DeepPartial } from 'ts-essentials'
 
 import { ConfigurationOptions } from './ConfigurationOptions'
+import { MergeAll } from '../Utilities'
 
 export const ConfigurationKey: symbol = Symbol('nativenode.common.Configuration')
 export const ConfigurationPathKey: symbol = Symbol('nativenode.common.ConfigurationPath')
@@ -16,11 +17,11 @@ export class Configuration<T extends ConfigurationOptions> {
 
   async load(options: DeepPartial<ConfigurationOptions> = {}): Promise<T> {
     if (await fs.exists(this.configpath)) {
-      const buffer = await fs.json<T>(this.configpath)
-      return Merge<T>(options, buffer)
+      const json = await fs.json<T>(this.configpath)
+      return MergeAll<T>(options, json as DeepPartial<T>)
     }
 
-    return Merge<T>(options)
+    return MergeAll<T>(options)
   }
 
   async save(configuration: T): Promise<void> {

@@ -1,6 +1,6 @@
 import 'reflect-metadata'
 
-import yargs, { CommandModule } from 'yargs'
+import yargs from 'yargs'
 
 import { fs } from '@nofrills/fs'
 import { container } from 'tsyringe'
@@ -17,7 +17,7 @@ export const CONSTANT_CONFIG_ENV = Env.from({ casing: EnvCaseOptions.PascalCase,
 export const CONSTANT_CONFIG_NAME = '.devopscli.json'
 
 container.register<Command>(Command, Command)
-container.register<CommandModule<{}, CommandOptions>>(CommandModules, ConfigureCommand)
+container.register(CommandModules, ConfigureCommand)
 
 container.register<Configuration<ConfigOptions>>(ConfigurationKey, {
   useFactory: () => new Configuration<ConfigOptions>(CONSTANT_CONFIG_DIR, CONSTANT_CONFIG_NAME),
