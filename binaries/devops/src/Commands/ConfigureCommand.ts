@@ -53,7 +53,7 @@ export class ConfigureCommand implements CommandModule<{}, CommandOptions> {
 
     switch (args.action) {
       case 'json':
-        console.log(objmap.toObject())
+        console.log(JSON.stringify(objmap.toObject(), null, 2))
         break
 
       case 'list':

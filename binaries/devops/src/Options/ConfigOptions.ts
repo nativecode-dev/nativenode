@@ -26,8 +26,11 @@ export const DEFAULT_CONFIGURATION: DeepPartial<ConfigOptions> = {
       },
       host: 'localhost',
       name: 'couchdb',
-      options: {},
-      port: 1,
+      options: {
+        adapter: 'web',
+        url: 'devops',
+      },
+      port: 5984,
     },
   ],
 }

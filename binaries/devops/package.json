@@ -29,7 +29,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "ts-node src build",
+    "build": "tsc --build tsconfig.json",
     "exec": "ts-node src/index.ts",
     "upgrade": "npx npm-check -y"
   },
