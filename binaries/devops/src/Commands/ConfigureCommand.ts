@@ -1,7 +1,8 @@
 import { fs } from '@nofrills/fs'
 import { injectable, inject } from 'tsyringe'
+import { ObjectMap } from '@nnode/objnav'
 import { Arguments, CommandBuilder, CommandModule } from 'yargs'
-import { ObjectNavigator, Configuration, ConfigurationKey } from '@nnode/common'
+import { Configuration, ConfigurationKey } from '@nnode/common'
 
 import { CommandOptions } from '../Options/CommandOptions'
 import { DEFAULT_CONFIGURATION } from '../Options/ConfigOptions'
@@ -13,7 +14,7 @@ export class ConfigureCommand implements CommandModule<{}, CommandOptions> {
 
   builder: CommandBuilder<{}, CommandOptions> = {
     action: {
-      choices: ['get', 'json', 'set', 'show'],
+      choices: ['get', 'json', 'list', 'set', 'show'],
       default: 'show',
       type: 'string',
     },
@@ -50,6 +51,10 @@ export class ConfigureCommand implements CommandModule<{}, CommandOptions> {
 
       if (args.action === 'get') {
         console.log(name, nav.getValue(name))
+      }
+
+      if (args.action === 'list') {
+        console.log(name, value)
       }
 
       if (args.action === 'show') {
