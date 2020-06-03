@@ -72,7 +72,7 @@ export class ObjectMap {
   }
 
   paths(): string[] {
-    return this.select().map((objmap) => this.pathstr(objmap))
+    return this.select().map((objmap) => this.pathstr(objmap)).sort()
   }
 
   select(filter: ObjectMapValueFilter | undefined = () => true): ObjectMapValue[] {
