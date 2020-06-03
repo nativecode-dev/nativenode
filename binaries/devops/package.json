@@ -1,5 +1,5 @@
 {
-  "name": "devopscli",
+  "name": "@nnode/devops",
   "version": "0.0.1-next.0",
   "description": "DevOps CLI",
   "license": "MIT",
@@ -15,7 +15,7 @@
   "author": "opensource@nativecode.com",
   "bin": {
     "devops": "./bin/index.js",
-    "devopscli": "./bin/index.js"
+    "devops-cli": "./bin/index.js"
   },
   "main": "./src/index.ts",
   "files": [
