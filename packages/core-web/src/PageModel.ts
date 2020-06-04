@@ -43,35 +43,37 @@ function links(pages: number, take: number): PageLink[] {
   })
 }
 
-export function getParam<T extends ValueType>(req: Request, key: string, defaults: T): T {
-  const value = req.params[key]
-  if (value) {
-    return getValue(value)
+export namespace Pager {
+  export function getParam<T extends ValueType>(req: Request, key: string, defaults: T): T {
+    const value = req.params[key]
+    if (value) {
+      return getValue(value)
+    }
+    return defaults
   }
-  return defaults
-}
 
-export function getQuery<T extends ValueType>(req: Request, key: string, defaults: T): T {
-  const value: string = req.query[key].toString()
-  if (value) {
-    return getValue(value)
+  export function getQuery<T extends ValueType>(req: Request, key: string, defaults: T): T {
+    const value: string = req.query[key].toString()
+    if (value) {
+      return getValue(value)
+    }
+    return defaults
   }
-  return defaults
-}
 
-export function getSkipTake(req: Request) {
-  const skip = getParam<number>(req, 'skip', getQuery<number>(req, 'skip', 0))
-  const take = getParam<number>(req, 'take', getQuery<number>(req, 'take', 20))
-  return { skip, take }
-}
+  export function getSkipTake(req: Request) {
+    const skip = getParam<number>(req, 'skip', getQuery<number>(req, 'skip', 0))
+    const take = getParam<number>(req, 'take', getQuery<number>(req, 'take', 20))
+    return { skip, take }
+  }
 
-export function pagination(req: Request, total: number): PageModel {
-  const skip = getParam<number>(req, 'skip', getQuery<number>(req, 'skip', 0))
-  const take = getParam<number>(req, 'take', getQuery<number>(req, 'take', 20))
+  export function pagination(req: Request, total: number): PageModel {
+    const skip = getParam<number>(req, 'skip', getQuery<number>(req, 'skip', 0))
+    const take = getParam<number>(req, 'take', getQuery<number>(req, 'take', 20))
 
-  const count = Math.floor(total / take)
-  const page = Math.floor(skip / take) + 1
-  const pages = total % take === 0 ? count : count + 1
+    const count = Math.floor(total / take)
+    const page = Math.floor(skip / take) + 1
+    const pages = total % take === 0 ? count : count + 1
 
-  return { page, skip, take, total, pages: links(pages, take) }
+    return { page, skip, take, total, pages: links(pages, take) }
+  }
 }
