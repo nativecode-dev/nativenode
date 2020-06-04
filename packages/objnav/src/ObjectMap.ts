@@ -174,9 +174,8 @@ export class ObjectMap {
       return objmap.properties
         .filter((property) => this.include(property.type))
         .reduce<any>((result, property) => {
-          if (objmap.type === 'array') {
-            const value = result[property.name] || []
-            result[property.name] = value.push(property.value)
+          if (property.type === 'array') {
+            result[property.name] = property.properties.map((propname) => conjure(propname, {}))
           } else if (property.type === 'object') {
             result[property.name] = conjure(property, {})
           } else {
