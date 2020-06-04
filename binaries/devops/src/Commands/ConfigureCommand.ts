@@ -1,3 +1,5 @@
+import os from 'os'
+
 import { fs } from '@nofrills/fs'
 import { ObjectMap } from '@nnode/objnav'
 import { injectable, inject } from 'tsyringe'
@@ -20,8 +22,8 @@ export class ConfigureCommand implements CommandModule<{}, ConfigureOptions> {
       type: 'string',
     },
     configpath: {
-      alias: ['c'],
-      default: fs.join(process.env.HOME || process.cwd(), '.config'),
+      alias: 'c',
+      default: fs.join(process.env.HOME || os.homedir(), '.config'),
       type: 'string',
     },
     options: {
@@ -64,15 +66,17 @@ export class ConfigureCommand implements CommandModule<{}, ConfigureOptions> {
           console.log(JSON.stringify(objmap.toObject(), null, 2))
           break
 
-        case 'list':
+        case 'set':
+          args.options.map((arg) => namevalue(arg)).forEach(({ name, value }) => objmap.set(name, value))
+          console.log(JSON.stringify(objmap.toObject(), null, 2))
+          await this.configuration.save(objmap.toObject())
+          break
+
+        default:
           objmap
             .paths()
             .sort()
             .map((path) => console.log(path))
-          break
-
-        case 'set':
-          await this.configuration.save(objmap.toObject())
           break
       }
     }
