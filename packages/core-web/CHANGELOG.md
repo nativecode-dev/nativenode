@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.2](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@2.2.1...@nnode/core-web@2.2.2) (2020-06-04)
+
+
+### Bug Fixes
+
+* **fix pagination when no query params:** fixes pagination logic to not error when no query params e ([1a6d955](https://github.com/nativecode-dev/sosus/commit/1a6d955073a79bf5d21133ec673213271b22db78))
+
+
+
+
+
 ## [2.2.1](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@2.2.0...@nnode/core-web@2.2.1) (2020-06-04)
 
 
