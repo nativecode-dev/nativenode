@@ -3,7 +3,7 @@ import { Merge } from '@nnode/core'
 import { Documents, Document } from '@nnode/core-data'
 
 import { Route } from './Route'
-import { pagination } from './PageModel'
+import { Pager } from './PageModel'
 import { createResponse, createResponseCollection } from './Response'
 
 export abstract class ApiRoute extends Route {
@@ -23,7 +23,7 @@ export abstract class ApiRoute extends Route {
     this.router.get(this.clean(route), async (req, res) => {
       const { sort, query } = req.params
       const count = await context.count()
-      const pagemodel = pagination(req, count)
+      const pagemodel = Pager.pagination(req, count)
       const { skip, take } = pagemodel
 
       const filter: PouchDB.Find.FindRequest<T> = {
