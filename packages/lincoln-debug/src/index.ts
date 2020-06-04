@@ -1,6 +1,6 @@
 import debug from 'debug'
 
-import { LincolnLog, LincolnEnvelope, LincolnMessageType } from '@nnode/lincoln'
+import { LincolnLog, LincolnEnvelope, LincolnMessageType, Lincoln } from '@nnode/lincoln'
 
 interface DebugLogger {
   [key: string]: debug.IDebugger
@@ -9,6 +9,10 @@ interface DebugLogger {
 const DEBUG_LOGGERS: DebugLogger = {}
 
 export class LincolnLogDebug extends LincolnLog {
+  static observe(lincoln: Lincoln): LincolnLogDebug {
+    return new LincolnLogDebug(lincoln)
+  }
+
   protected initialize(): Promise<void> {
     return Promise.resolve()
   }
