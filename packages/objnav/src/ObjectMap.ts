@@ -64,7 +64,14 @@ export class ObjectMap {
       return this.root
     }
 
-    return path.split('.').reduce<ObjectMapValue>((result, current) => this.node(result, current), this.root)
+    return path
+      .trim()
+      .split('.')
+      .reduce<ObjectMapValue>(
+        (result, property) =>
+          result.properties.reduce((_, current) => (current.name === property ? current : _), result),
+        this.root,
+      )
   }
 
   getValue<T>(path: string): T {
@@ -94,8 +101,7 @@ export class ObjectMap {
   }
 
   set<T>(path: string, value: T): ObjectMap {
-    const objmap = this.get(path)
-    objmap.value = value
+    this.get(path).value = value
     return this
   }
 
@@ -184,10 +190,6 @@ export class ObjectMap {
     const material = {}
     conjure(this.root, material)
     return material
-  }
-
-  private node(objmap: ObjectMapValue, property: string): ObjectMapValue {
-    return objmap.properties.reduce((result, current) => (current.name === property ? current : result), objmap)
   }
 
   private pathstr(objmap: ObjectMapValue): string {
