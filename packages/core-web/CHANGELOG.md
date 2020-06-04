@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@2.2.0...@nnode/core-web@2.2.1) (2020-06-04)
+
+
+### Bug Fixes
+
+* **moved PageModel functions into Pager namespace:** all pagination functions now have a Pager namesaffects: @nnode/devops, @nnode/core-webBREAKING CHANGE:moved functions into Pager namespace ([472fc90](https://github.com/nativecode-dev/sosus/commit/472fc907a3315c57c4f379ca12d928749d7f794f))
+
+
+
+
+
 # [2.2.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@2.2.0-next.2...@nnode/core-web@2.2.0) (2020-06-04)
 
 **Note:** Version bump only for package @nnode/core-web
