@@ -20,6 +20,12 @@
       "path": "../../packages/common"
     },
     {
+      "path": "../../packages/lincoln"
+    },
+    {
+      "path": "../../packages/lincoln-debug"
+    },
+    {
       "path": "../../packages/objnav"
     }
   ]
