@@ -46,17 +46,23 @@ function links(pages: number, take: number): PageLink[] {
 export namespace Pager {
   export function getParam<T extends ValueType>(req: Request, key: string, defaults: T): T {
     const value = req.params[key]
+
     if (value) {
       return getValue(value)
     }
+
     return defaults
   }
 
   export function getQuery<T extends ValueType>(req: Request, key: string, defaults: T): T {
-    const value: string = req.query[key].toString()
-    if (value) {
-      return getValue(value)
+    if (req.query[key]) {
+      const value: string = req.query[key].toString()
+
+      if (value) {
+        return getValue(value)
+      }
     }
+
     return defaults
   }
 
