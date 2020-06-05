@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.5](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.2.4...@nnode/core-web@3.2.5) (2020-06-05)
+
+
+### Bug Fixes
+
+* remove auto register call on ApiRoute ([d99931d](https://github.com/nativecode-dev/sosus/commit/d99931d29c27a789c6bd12c379ddf48219bd7ab2))
+
+
+
+
+
 ## [3.2.4](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.2.3...@nnode/core-web@3.2.4) (2020-06-05)
 
 
