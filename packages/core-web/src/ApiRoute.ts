@@ -1,5 +1,5 @@
-import { Express } from 'express'
 import { Merge } from '@nnode/core'
+import { Express } from 'express'
 import { Documents, Document } from '@nnode/core-data'
 
 import { Route } from './Route'
@@ -9,17 +9,20 @@ import { createResponse, createResponseCollection } from './Response'
 export abstract class ApiRoute extends Route {
   constructor(readonly name: string, router: Express) {
     super(router)
+    this.register()
   }
 
-  registerById<T extends Document>(route: string, context: Documents<T>) {
+  abstract register(): void
+
+  protected registerById<T extends Document>(route: string, context: Documents<T>) {
     this.router.get(this.clean(route), async (req, res) => {
       const { id } = req.params
-      const movie = await context.byId(id)
-      res.json(createResponse(movie))
+      const doc = await context.byId(id)
+      res.json(createResponse(doc))
     })
   }
 
-  registerCollection<T extends Document>(route: string, context: Documents<T>) {
+  protected registerCollection<T extends Document>(route: string, context: Documents<T>) {
     this.router.get(this.clean(route), async (req, res) => {
       const { sort, query } = req.params
       const count = await context.count()
@@ -44,8 +47,8 @@ export abstract class ApiRoute extends Route {
       }
 
       try {
-        const movies = await context.all(filter)
-        res.json(createResponseCollection(movies, pagemodel))
+        const docs = await context.all(filter)
+        res.json(createResponseCollection(docs, pagemodel))
       } catch (error) {
         console.error(error)
       }
