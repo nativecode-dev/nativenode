@@ -1,6 +1,6 @@
 {
   "name": "@nnode/core-web",
-  "version": "2.2.3-next.1",
+  "version": "2.2.3",
   "description": "NativeCode Web Library",
   "license": "MIT",
   "repository": {
