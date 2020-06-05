@@ -17,7 +17,7 @@ export interface PageModel {
 export type ValueType = number | string
 
 function floatstr(value: string): boolean {
-  return /[\d+\.\d+]+/g.test(value)
+  return /(\d+\.\d+)/g.test(value)
 }
 
 function numstr(value: string): boolean {
