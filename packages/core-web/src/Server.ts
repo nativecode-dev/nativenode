@@ -38,8 +38,6 @@ export abstract class Server<T extends ServerConfig> implements Runnable {
       })
 
       await this.bootstrap(this.app)
-
-      this.app.use(this.app.router)
     } catch (error) {
       console.error(error)
       throw error
