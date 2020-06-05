@@ -5,6 +5,7 @@ import { Documents, Document } from '@nnode/core-data'
 import { Route } from './Route'
 import { Pager } from './PageModel'
 import { createResponse, createResponseCollection } from './Response'
+import { RouteDefine } from './RouteDefine'
 
 export abstract class ApiRoute extends Route {
   constructor(readonly name: string, router: Express) {
@@ -61,5 +62,9 @@ export abstract class ApiRoute extends Route {
     }
 
     return route
+  }
+
+  protected routes(): RouteDefine {
+    return new RouteDefine(this.name, this.router)
   }
 }
