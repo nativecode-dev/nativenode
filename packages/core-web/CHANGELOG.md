@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.1.0...@nnode/core-web@3.2.0) (2020-06-05)
+
+
+### Features
+
+* refactor register method ([f05bd65](https://github.com/nativecode-dev/sosus/commit/f05bd652a9296183d5ab30089fd5d388bda2f967))
+
+
+
+
+
 # [3.1.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.0.0...@nnode/core-web@3.1.0) (2020-06-05)
 
 
