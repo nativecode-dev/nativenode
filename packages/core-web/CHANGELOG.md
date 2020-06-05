@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.3](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.2.2...@nnode/core-web@3.2.3) (2020-06-05)
+
+
+### Bug Fixes
+
+* **Server no longer accepts app param:** the abstract Server class no longer accepts an express applaffects: @nnode/core-webBREAKING CHANGE:Server no longer accepts app param ([5a38ff8](https://github.com/nativecode-dev/sosus/commit/5a38ff8d410261a1b890b7926a1b87adaa55181e))
+
+
+
+
+
 ## [3.2.2](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.2.1...@nnode/core-web@3.2.2) (2020-06-05)
 
 

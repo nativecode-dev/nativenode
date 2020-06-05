@@ -10,21 +10,22 @@ export const ServerConfigurationType = Symbol('ServerConfiguration')
 
 export abstract class Server<T extends ServerConfig> implements Runnable {
   readonly config: T
-  private readonly express: express.Express
-  private readonly http: http.Server
+  readonly name: string
+  readonly server: http.Server
 
+  protected readonly app: express.Express
   protected readonly log: Lincoln
-  protected readonly name: string
 
-  constructor(name: string, app: express.Express, logger: Lincoln, config: DeepPartial<T>) {
+  constructor(name: string, logger: Lincoln, config: DeepPartial<T>) {
     this.name = name
     this.log = logger.extend(name)
     this.config = Merge<T>([config])
-    this.http = http.createServer(app)
 
-    this.express = app
-    this.express.use(express.urlencoded({ extended: true }))
-    this.express.use(express.json())
+    this.app = express()
+    this.app.use(express.urlencoded({ extended: true }))
+    this.app.use(express.json())
+
+    this.server = http.createServer(this.app)
 
     this.log.debug('create', this.name)
   }
@@ -36,10 +37,9 @@ export abstract class Server<T extends ServerConfig> implements Runnable {
         express.static(dir)
       })
 
-      await this.bootstrap(this.express)
+      await this.bootstrap(this.app)
 
-      const routes = this.express._router.stack.filter((item: any) => item.route).map((item: any) => item.route.path)
-      this.log.debug('routes', ...routes)
+      this.app.use(this.app.router)
     } catch (error) {
       console.error(error)
       throw error
@@ -48,14 +48,14 @@ export abstract class Server<T extends ServerConfig> implements Runnable {
 
   start(): Promise<void> {
     return new Promise((resolve) => {
-      this.http.listen(this.config.port, () => resolve())
+      this.server.listen(this.config.port, () => resolve())
       console.log(`listening ${this.config.host}:${this.config.port}`)
     })
   }
 
   stop(): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.http.close((error) => {
+      this.server.close((error) => {
         if (error) {
           reject(error)
         } else {
@@ -65,9 +65,5 @@ export abstract class Server<T extends ServerConfig> implements Runnable {
     })
   }
 
-  protected get server(): http.Server {
-    return this.http
-  }
-
-  protected abstract bootstrap(express: express.Express): Promise<void>
+  protected abstract bootstrap(app: express.Express): Promise<void>
 }
