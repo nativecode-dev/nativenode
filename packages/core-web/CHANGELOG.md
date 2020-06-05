@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.2](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.2.1...@nnode/core-web@3.2.2) (2020-06-05)
+
+
+### Bug Fixes
+
+* RequestHandler type ([6d2901e](https://github.com/nativecode-dev/sosus/commit/6d2901ee11e49d3a6e5a6a73953d56cb1db544b4))
+
+
+
+
+
 ## [3.2.1](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.2.0...@nnode/core-web@3.2.1) (2020-06-05)
 
 
