@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.3](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@2.2.2...@nnode/core-web@2.2.3) (2020-06-05)
+
+
+### Bug Fixes
+
+* floatstr regex ([2cb9357](https://github.com/nativecode-dev/sosus/commit/2cb9357f91192ee7eeb9fc627447ca5c7c14d94d))
+
+
+
+
+
 ## [2.2.2](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@2.2.1...@nnode/core-web@2.2.2) (2020-06-04)
 
 
