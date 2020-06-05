@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.4](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.2.3...@nnode/core-web@3.2.4) (2020-06-05)
+
+
+### Bug Fixes
+
+* remove app.use(app.router) ([9adabed](https://github.com/nativecode-dev/sosus/commit/9adabed72398eb2436b65b98ed24a190d0c89c98))
+
+
+
+
+
 ## [3.2.3](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.2.2...@nnode/core-web@3.2.3) (2020-06-05)
 
 
