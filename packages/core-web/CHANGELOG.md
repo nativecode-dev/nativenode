@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.0.0...@nnode/core-web@3.1.0) (2020-06-05)
+
+
+### Features
+
+* add routes method ([e774c38](https://github.com/nativecode-dev/sosus/commit/e774c38b492aaa214dda52bd2cda0789772ed9fd))
+
+
+
+
+
 # [3.0.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@2.2.3...@nnode/core-web@3.0.0) (2020-06-05)
 
 
