@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@2.2.3...@nnode/core-web@3.0.0) (2020-06-05)
+
+
+### Features
+
+* **added route helpers:** created route helpers called RouteDefine and RouteVerb, these are registe ([473110e](https://github.com/nativecode-dev/sosus/commit/473110e6932be2684f4770865dfa03b26d2bdeeb))
+
+
+### BREAKING CHANGES
+
+* **added route helpers:** ApiRoute now requires register implementation
+
+
+
+
+
 ## [2.2.3](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@2.2.2...@nnode/core-web@2.2.3) (2020-06-05)
 
 
