@@ -13,7 +13,11 @@ export abstract class ApiRoute extends Route {
     this.register()
   }
 
-  abstract register(): void
+  register(): void {
+    this.registerRoutes(new RouteDefine(this.name, this.router))
+  }
+
+  protected abstract registerRoutes(routes: RouteDefine): void
 
   protected registerById<T extends Document>(route: string, context: Documents<T>) {
     this.router.get(this.clean(route), async (req, res) => {
