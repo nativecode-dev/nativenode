@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.6](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.2.5...@nnode/core-web@3.2.6) (2020-06-05)
+
+
+### Bug Fixes
+
+* add app back ([4867686](https://github.com/nativecode-dev/sosus/commit/48676860985fd880059f0dc740d1aef247bf9899))
+
+
+
+
+
 ## [3.2.5](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.2.4...@nnode/core-web@3.2.5) (2020-06-05)
 
 
