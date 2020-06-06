@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.2.6...@nnode/core-web@3.3.0) (2020-06-06)
+
+
+### Features
+
+* RouteVerb now accepts mutiple handlers ([8b54ea3](https://github.com/nativecode-dev/sosus/commit/8b54ea3cf6eb84daf7071487bedaba028580fdad))
+
+
+
+
+
 ## [3.2.6](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.2.5...@nnode/core-web@3.2.6) (2020-06-05)
 
 
