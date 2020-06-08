@@ -18,10 +18,24 @@ describe('when using Lincoln', () => {
     expect(sut.scope).to.equal('lincoln:test:extended')
   })
 
-  it('should observe single messages', done => {
+  it('should extend existing transformers', (done) => {
+    let counter = 0
+    const lincoln = new Lincoln({ namespace: 'lincoln:test' })
+
+    lincoln.intercept((message) => {
+      expect(message.type).to.equal(LincolnMessageType.debug)
+      done()
+      return message
+    })
+
+    const sut = lincoln.extend('extended')
+    sut.debug('test')
+  })
+
+  it('should observe single messages', (done) => {
     const sut = new Lincoln({ namespace: 'lincoln:test' })
 
-    const subscription = sut.subscribe(envelope => {
+    const subscription = sut.subscribe((envelope) => {
       expect(envelope.message.body).to.equal('test')
       subscription.unsubscribe()
       done()
@@ -30,11 +44,11 @@ describe('when using Lincoln', () => {
     sut.write(createMessage('test', LincolnMessageType.info))
   })
 
-  it('should observe extended messages', done => {
+  it('should observe extended messages', (done) => {
     const lincoln = new Lincoln({ namespace: 'lincoln:test' })
     const sut = lincoln.extend('extended')
 
-    const subscription = lincoln.subscribe(envelope => {
+    const subscription = lincoln.subscribe((envelope) => {
       expect(envelope.message.body).to.equal('test')
       subscription.unsubscribe()
       done()
@@ -46,8 +60,8 @@ describe('when using Lincoln', () => {
   const sut = new Lincoln({ namespace: 'lincoln:test' })
 
   describe('to call log methods', () => {
-    it('should log debug message', done => {
-      const subscription = sut.subscribe(envelope => {
+    it('should log debug message', (done) => {
+      const subscription = sut.subscribe((envelope) => {
         expect(envelope.scope).to.equal('lincoln:test')
         expect(envelope.message.body).to.equal('debug message')
         subscription.unsubscribe()
@@ -57,8 +71,8 @@ describe('when using Lincoln', () => {
       sut.debug('debug message')
     })
 
-    it('should log info message', done => {
-      const subscription = sut.subscribe(envelope => {
+    it('should log info message', (done) => {
+      const subscription = sut.subscribe((envelope) => {
         expect(envelope.scope).to.equal('lincoln:test')
         expect(envelope.message.body).to.equal('info message')
         subscription.unsubscribe()
@@ -68,8 +82,8 @@ describe('when using Lincoln', () => {
       sut.info('info message')
     })
 
-    it('should log warn message', done => {
-      const subscription = sut.subscribe(envelope => {
+    it('should log warn message', (done) => {
+      const subscription = sut.subscribe((envelope) => {
         expect(envelope.scope).to.equal('lincoln:test')
         expect(envelope.message.body).to.equal('warn message')
         subscription.unsubscribe()
@@ -79,8 +93,8 @@ describe('when using Lincoln', () => {
       sut.warn('warn message')
     })
 
-    it('should log silly message', done => {
-      const subscription = sut.subscribe(envelope => {
+    it('should log silly message', (done) => {
+      const subscription = sut.subscribe((envelope) => {
         expect(envelope.scope).to.equal('lincoln:test')
         expect(envelope.message.body).to.equal('silly message')
         subscription.unsubscribe()
@@ -90,8 +104,8 @@ describe('when using Lincoln', () => {
       sut.silly('silly message')
     })
 
-    it('should log fatal message', done => {
-      const subscription = sut.subscribe(envelope => {
+    it('should log fatal message', (done) => {
+      const subscription = sut.subscribe((envelope) => {
         expect(envelope.scope).to.equal('lincoln:test')
         expect(envelope.message.body).to.instanceOf(Error)
         subscription.unsubscribe()
@@ -101,8 +115,8 @@ describe('when using Lincoln', () => {
       sut.fatal(new Error('fatal'))
     })
 
-    it('should log error message', done => {
-      const subscription = sut.subscribe(envelope => {
+    it('should log error message', (done) => {
+      const subscription = sut.subscribe((envelope) => {
         expect(envelope.scope).to.equal('lincoln:test')
         expect(envelope.message.body).to.instanceOf(Error)
         subscription.unsubscribe()
@@ -112,8 +126,8 @@ describe('when using Lincoln', () => {
       sut.error(new Error('error'))
     })
 
-    it('should log message with parameters', done => {
-      const subscription = sut.subscribe(envelope => {
+    it('should log message with parameters', (done) => {
+      const subscription = sut.subscribe((envelope) => {
         expect(envelope.scope).to.equal('lincoln:test')
         expect(envelope.message.body).to.equal('message')
         expect(envelope.message.parameters).to.deep.equal([1, 2, 3])
