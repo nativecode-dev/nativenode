@@ -16,9 +16,8 @@ export class Lincoln extends Subject<LincolnEnvelope> {
   private readonly namespace: string[]
   private readonly options: LincolnOptions
   private readonly subscriptions: Subscription[] = []
-  private readonly transformers: Set<LincolnLogTransform> = new Set()
 
-  constructor(options: Partial<LincolnOptions>) {
+  constructor(options: Partial<LincolnOptions>, private readonly transformers: Set<LincolnLogTransform> = new Set()) {
     super()
     this.options = Merge<LincolnOptions>(DefaultOptions, options)
     this.namespace = this.options.namespace.split(this.options.namespaceSeparator)
@@ -52,7 +51,7 @@ export class Lincoln extends Subject<LincolnEnvelope> {
       namespace: ns.join(this.options.namespaceSeparator),
     })
 
-    const lincoln = new Lincoln(options)
+    const lincoln = new Lincoln(options, this.transformers)
 
     const subscription = lincoln.subscribe(
       (value) => this.next(value),
