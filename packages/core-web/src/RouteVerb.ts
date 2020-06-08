@@ -5,38 +5,38 @@ import { RouteDefine } from './RouteDefine'
 export class RouteVerb {
   constructor(private readonly owner: RouteDefine, private readonly route: string, private readonly router: Express) {}
 
-  delete(handler: RequestHandler): RouteDefine {
-    this.router.delete(this.route, handler)
+  delete(...handlers: RequestHandler[]): RouteDefine {
+    this.router.delete(this.route, handlers)
     return this.owner
   }
 
-  get(handler: RequestHandler): RouteDefine {
-    this.router.get(this.route, handler)
+  get(...handlers: RequestHandler[]): RouteDefine {
+    this.router.get(this.route, handlers)
     return this.owner
   }
 
-  head(handler: RequestHandler): RouteDefine {
-    this.router.head(this.route, handler)
+  head(...handlers: RequestHandler[]): RouteDefine {
+    this.router.head(this.route, handlers)
     return this.owner
   }
 
-  options(handler: RequestHandler): RouteDefine {
-    this.router.options(this.route, handler)
+  options(...handlers: RequestHandler[]): RouteDefine {
+    this.router.options(this.route, handlers)
     return this.owner
   }
 
-  patch(handler: RequestHandler): RouteDefine {
-    this.router.patch(this.route, handler)
+  patch(...handlers: RequestHandler[]): RouteDefine {
+    this.router.patch(this.route, handlers)
     return this.owner
   }
 
-  post(handler: RequestHandler): RouteDefine {
-    this.router.post(this.route, handler)
+  post(...handlers: RequestHandler[]): RouteDefine {
+    this.router.post(this.route, handlers)
     return this.owner
   }
 
-  put(handler: RequestHandler): RouteDefine {
-    this.router.put(this.route, handler)
+  put(...handlers: RequestHandler[]): RouteDefine {
+    this.router.put(this.route, handlers)
     return this.owner
   }
 }

@@ -10,7 +10,6 @@ import { RouteDefine } from './RouteDefine'
 export abstract class ApiRoute extends Route {
   constructor(readonly name: string, router: Express) {
     super(router)
-    this.register()
   }
 
   register(): void {

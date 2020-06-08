@@ -3,6 +3,61 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.1](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.3.0...@nnode/core-web@3.3.1) (2020-06-08)
+
+
+### Bug Fixes
+
+* regex patterns ([eafcc4d](https://github.com/nativecode-dev/sosus/commit/eafcc4d5cab29a42dcbbb0936a080fe74afa75d9))
+
+
+
+
+
+# [3.3.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.2.6...@nnode/core-web@3.3.0) (2020-06-06)
+
+
+### Features
+
+* RouteVerb now accepts mutiple handlers ([8b54ea3](https://github.com/nativecode-dev/sosus/commit/8b54ea3cf6eb84daf7071487bedaba028580fdad))
+
+
+
+
+
+## [3.2.6](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.2.5...@nnode/core-web@3.2.6) (2020-06-05)
+
+
+### Bug Fixes
+
+* add app back ([4867686](https://github.com/nativecode-dev/sosus/commit/48676860985fd880059f0dc740d1aef247bf9899))
+
+
+
+
+
+## [3.2.5](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.2.4...@nnode/core-web@3.2.5) (2020-06-05)
+
+
+### Bug Fixes
+
+* remove auto register call on ApiRoute ([d99931d](https://github.com/nativecode-dev/sosus/commit/d99931d29c27a789c6bd12c379ddf48219bd7ab2))
+
+
+
+
+
+## [3.2.4](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.2.3...@nnode/core-web@3.2.4) (2020-06-05)
+
+
+### Bug Fixes
+
+* remove app.use(app.router) ([9adabed](https://github.com/nativecode-dev/sosus/commit/9adabed72398eb2436b65b98ed24a190d0c89c98))
+
+
+
+
+
 ## [3.2.3](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.2.2...@nnode/core-web@3.2.3) (2020-06-05)
 
 

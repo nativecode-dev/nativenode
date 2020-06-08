@@ -16,12 +16,12 @@ export abstract class Server<T extends ServerConfig> implements Runnable {
   protected readonly app: express.Express
   protected readonly log: Lincoln
 
-  constructor(name: string, logger: Lincoln, config: DeepPartial<T>) {
+  constructor(name: string, app: express.Express, logger: Lincoln, config: DeepPartial<T>) {
     this.name = name
     this.log = logger.extend(name)
     this.config = Merge<T>([config])
 
-    this.app = express()
+    this.app = app
     this.app.use(express.urlencoded({ extended: true }))
     this.app.use(express.json())
 
@@ -38,8 +38,6 @@ export abstract class Server<T extends ServerConfig> implements Runnable {
       })
 
       await this.bootstrap(this.app)
-
-      this.app.use(this.app.router)
     } catch (error) {
       console.error(error)
       throw error
