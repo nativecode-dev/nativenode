@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/nativecode-dev/nativenode/compare/@nnode/lincoln@0.5.0...@nnode/lincoln@0.5.1) (2020-06-08)
+
+
+### Bug Fixes
+
+* **transformers propagate on extend:** transformer sets now are passed on to extended loggers ([f661754](https://github.com/nativecode-dev/nativenode/commit/f661754b1facf065c63a075873c425e7a7718c97))
+
+
+
+
+
 # [0.5.0](https://github.com/nativecode-dev/nativenode/compare/@nnode/lincoln@0.5.0-next.2...@nnode/lincoln@0.5.0) (2020-06-04)
 
 **Note:** Version bump only for package @nnode/lincoln
