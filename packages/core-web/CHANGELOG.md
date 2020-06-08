@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.1](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.3.0...@nnode/core-web@3.3.1) (2020-06-08)
+
+
+### Bug Fixes
+
+* regex patterns ([eafcc4d](https://github.com/nativecode-dev/sosus/commit/eafcc4d5cab29a42dcbbb0936a080fe74afa75d9))
+
+
+
+
+
 # [3.3.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.2.6...@nnode/core-web@3.3.0) (2020-06-06)
 
 
