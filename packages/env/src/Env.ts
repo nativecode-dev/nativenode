@@ -2,6 +2,7 @@ import camelcase from 'camelcase'
 import capitalize from 'capitalize'
 import pascalcase from 'pascalcase'
 
+import { ObjectMap } from '@nnode/objnav'
 import { DeepPartial, MergeAll } from '@nnode/common'
 
 import { EnvOptions } from './EnvOptions'
@@ -24,6 +25,16 @@ export class Env {
       .reduce<any>((result, paths) => ({ ...result, ...this.createNode(paths, result) }), {})
 
     return obj
+  }
+
+  toVariables(): any {
+    const objmap = new ObjectMap(this.toObject())
+    return objmap.paths().reduce<any>((output, current) => {
+      const name = current.toUpperCase().replace(/\./g, '_')
+      const value = objmap.getValue(current)
+      output[name] = value
+      return output
+    }, {})
   }
 
   protected casing(value: string, casing: EnvCaseOptions): string {

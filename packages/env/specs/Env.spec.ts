@@ -19,4 +19,10 @@ describe('when using Env', () => {
     const env = new Env({ casing: EnvCaseOptions.capitalize, env: ENV, prefix: 'app' })
     expect(env.toObject().App.Test).to.equal('value')
   })
+
+  it('should export variables', () => {
+    const env = new Env({ env: ENV, prefix: 'app' })
+    const obj = env.toVariables()
+    expect(obj.APP_TEST).to.equal('value')
+  })
 })
