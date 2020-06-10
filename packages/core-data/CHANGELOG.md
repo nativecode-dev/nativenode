@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core-data@1.3.2...@nnode/core-data@1.4.0) (2020-06-10)
+
+
+### Features
+
+* add env package ([8c7a682](https://github.com/nativecode-dev/sosus/commit/8c7a682d2b3d0ad513d0610fecf365b4922d9ac6))
+
+
+
+
+
+## [1.3.2](https://github.com/nativecode-dev/sosus/compare/@nnode/core-data@1.3.1...@nnode/core-data@1.3.2) (2020-06-08)
+
+**Note:** Version bump only for package @nnode/core-data
+
+
+
+
+
 ## [1.3.1](https://github.com/nativecode-dev/sosus/compare/@nnode/core-data@1.3.0...@nnode/core-data@1.3.1) (2020-06-08)
 
 **Note:** Version bump only for package @nnode/core-data

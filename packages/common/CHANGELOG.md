@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/nativecode-dev/nativenode/compare/@nnode/common@0.6.0...@nnode/common@0.7.0) (2020-06-10)
+
+
+### Features
+
+* add env package ([8c7a682](https://github.com/nativecode-dev/nativenode/commit/8c7a682d2b3d0ad513d0610fecf365b4922d9ac6))
+
+
+
+
+
 # [0.6.0](https://github.com/nativecode-dev/nativenode/compare/@nnode/common@0.6.0-next.2...@nnode/common@0.6.0) (2020-06-04)
 
 **Note:** Version bump only for package @nnode/common

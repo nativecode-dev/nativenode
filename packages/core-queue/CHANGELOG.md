@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core-queue@1.1.0...@nnode/core-queue@1.2.0) (2020-06-10)
+
+
+### Features
+
+* add env package ([8c7a682](https://github.com/nativecode-dev/sosus/commit/8c7a682d2b3d0ad513d0610fecf365b4922d9ac6))
+
+
+
+
+
 # [1.1.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core-queue@1.1.0-next.2...@nnode/core-queue@1.1.0) (2020-06-04)
 
 **Note:** Version bump only for package @nnode/core-queue
