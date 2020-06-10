@@ -27,12 +27,13 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsc --project tsconfig.json",
+    "build": "tsc",
     "templates": "mustache ../../.markdown.json ../../LICENSE.md.mustache > LICENSE.md",
     "upgrade": "npx npm-check -y"
   },
   "dependencies": {
     "@nnode/core": "^3.2.2",
+    "@nnode/lincoln": "^0.5.2",
     "pouchdb": "^7.2.1",
     "pouchdb-adapter-memory": "^7.2.1",
     "pouchdb-find": "^7.2.1",

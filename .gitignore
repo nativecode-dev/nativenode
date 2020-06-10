@@ -1,4 +1,5 @@
 .npmrc
+.vscode/
 **/src/**/*.d.ts
 
 *.tsbuildinfo

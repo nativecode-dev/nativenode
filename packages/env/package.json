@@ -1,7 +1,7 @@
 {
-  "name": "@nnode/common",
-  "version": "0.6.0",
-  "description": "Provides a set of common functionality to all nativenode libraries.",
+  "name": "@nnode/env",
+  "version": "0.0.0",
+  "description": "Provides a slim abstraction for logging.",
   "license": "MIT",
   "private": false,
   "repository": {
@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/nativecode-dev/nativenode/issues"
   },
-  "homepage": "https://github.com/nativecode-dev/nativenode/tree/master/packages/common",
+  "homepage": "https://github.com/nativecode-dev/nativenode/tree/master/packages/env",
   "author": "opensource@nativecode.com",
   "main": "./lib/index.js",
   "publishConfig": {
@@ -24,19 +24,14 @@
   },
   "types": "./lib/index.d.ts",
   "dependencies": {
-    "@nofrills/fs": "^12.0.0",
+    "@nnode/common": "^0.6.0",
     "camelcase": "^6.0.0",
-    "deepmerge": "~4.2.2",
-    "promise-parallel-throttle": "~3.3.0",
-    "ts-essentials": "^6.0.5",
-    "uppercamelcase": "~3.0.0",
-    "validator": "^13.0.0",
-    "zipcodes-regex": "~1.0.3"
+    "capitalize": "^2.0.3",
+    "pascalcase": "^1.0.0"
   },
   "devDependencies": {
-    "@types/camelcase": "~5.2.0",
-    "@types/deepmerge": "~2.2.0",
-    "@types/uppercamelcase": "~3.0.0",
-    "@types/validator": "^13.0.0"
+    "@types/camelcase": "^5.2.0",
+    "@types/capitalize": "^1.0.2",
+    "@types/pascalcase": "^1.0.0"
   }
 }
