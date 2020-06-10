@@ -25,6 +25,7 @@
   "types": "./lib/index.d.ts",
   "dependencies": {
     "@nnode/common": "^0.7.0",
+    "@nnode/objnav": "^1.2.0",
     "rxjs": "^6.5.5"
   },
   "devDependencies": {
