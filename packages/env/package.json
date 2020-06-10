@@ -1,6 +1,6 @@
 {
   "name": "@nnode/env",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Provides a slim abstraction for logging.",
   "license": "MIT",
   "private": false,
@@ -24,7 +24,7 @@
   },
   "types": "./lib/index.d.ts",
   "dependencies": {
-    "@nnode/common": "^0.6.0",
+    "@nnode/common": "^0.7.0",
     "camelcase": "^6.0.0",
     "capitalize": "^2.0.3",
     "pascalcase": "^1.0.0"

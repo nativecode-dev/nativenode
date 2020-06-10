@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.3.3...@nnode/core-web@3.4.0) (2020-06-10)
+
+
+### Features
+
+* add env package ([8c7a682](https://github.com/nativecode-dev/sosus/commit/8c7a682d2b3d0ad513d0610fecf365b4922d9ac6))
+
+
+
+
+
 ## [3.3.3](https://github.com/nativecode-dev/sosus/compare/@nnode/core-web@3.3.2...@nnode/core-web@3.3.3) (2020-06-08)
 
 **Note:** Version bump only for package @nnode/core-web
