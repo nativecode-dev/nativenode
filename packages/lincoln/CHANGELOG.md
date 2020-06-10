@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/nativecode-dev/nativenode/compare/@nnode/lincoln@0.6.0...@nnode/lincoln@0.7.0) (2020-06-10)
+
+
+### Features
+
+* adding scrub transformer ([66348a7](https://github.com/nativecode-dev/nativenode/commit/66348a75c4e403b338f214929987721bdf38e6ae))
+
+
+
+
+
 # [0.6.0](https://github.com/nativecode-dev/nativenode/compare/@nnode/lincoln@0.5.2...@nnode/lincoln@0.6.0) (2020-06-10)
 
 

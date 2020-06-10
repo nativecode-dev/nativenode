@@ -1,6 +1,6 @@
 {
   "name": "@nnode/devops",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "DevOps CLI",
   "license": "MIT",
   "private": false,
@@ -40,8 +40,8 @@
   "types": "./bin/index.d.ts",
   "dependencies": {
     "@nnode/common": "^0.7.0",
-    "@nnode/lincoln": "^0.6.0",
-    "@nnode/lincoln-debug": "^0.5.0",
+    "@nnode/lincoln": "^0.7.0",
+    "@nnode/lincoln-debug": "^0.5.1",
     "@nnode/objnav": "^1.2.0",
     "@nofrills/fs": "^12.0.0",
     "reflect-metadata": "^0.1.13",

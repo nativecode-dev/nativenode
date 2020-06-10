@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core-data@1.4.0...@nnode/core-data@1.5.0) (2020-06-10)
+
+
+### Features
+
+* env toVariables added ([0d63b9b](https://github.com/nativecode-dev/sosus/commit/0d63b9bdb3a824e67e63370512f01bc8ccc233ad))
+
+
+
+
+
 # [1.4.0](https://github.com/nativecode-dev/sosus/compare/@nnode/core-data@1.3.2...@nnode/core-data@1.4.0) (2020-06-10)
 
 
